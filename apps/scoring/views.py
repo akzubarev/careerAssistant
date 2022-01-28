@@ -1,3 +1,13 @@
-from django.shortcuts import render
+from django.template.response import TemplateResponse
 
-# Create your views here.
+
+def main(request):
+    return TemplateResponse(request, 'scoring/MainPage.html', {})
+
+
+def form(request):
+    return TemplateResponse(request, 'scoring/Form.html', {})
+
+
+def register(request):
+    return TemplateResponse(request, 'scoring/Registration.html', {})

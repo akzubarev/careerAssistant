@@ -64,10 +64,10 @@ class Vacancy(Recommendation):
 
 class RecommendationResult(models.Model):
     scoringResult = models.ForeignKey(to=ScoringResult, on_delete=CASCADE)
-    events = models.ManyToManyField(to=Event, on_delete=CASCADE)
-    articles = models.ManyToManyField(to=Article, on_delete=CASCADE)
-    courses = models.ManyToManyField(to=Course, on_delete=CASCADE)
-    vacancies = models.ManyToManyField(to=Vacancy, on_delete=CASCADE)
+    events = models.ManyToManyField(to=Event)
+    articles = models.ManyToManyField(to=Article)
+    courses = models.ManyToManyField(to=Course)
+    vacancies = models.ManyToManyField(to=Vacancy)
 
     class Meta:
         verbose_name = 'recommendation result'
