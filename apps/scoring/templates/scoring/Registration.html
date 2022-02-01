@@ -65,7 +65,8 @@
                     Помогаем достичь профессиональных целей
                 </h1>
                 <div class="layout registration-cover-block1">
-                    <h4 class="layout registration-highlights1">
+                    <h4 class="layout registration-highlights1"
+                        onclick="form()">
                         Войти через Google
                     </h4>
                 </div>
@@ -83,6 +84,10 @@
     </div>
 </div>
 <script type="text/javascript">
+    function form() {
+        location.href = '/form'
+    }
+
     AOS.init();
 </script>
 </body>

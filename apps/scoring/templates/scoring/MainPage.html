@@ -4,10 +4,8 @@
 <!--  This source code is exported from pxCode, you can get more document from https://www.pxcode.io  -->
 <head>
     <meta charset="utf-8"/>
-    <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 
     <link
             rel="stylesheet"
@@ -60,11 +58,12 @@
                 <div class="main-page-section1__flex-item">
                     <div class="layout main-page-section1__flex1">
                         <h4 class="layout main-page-section1__highlights1">
-                            Поможем понять кем ты хочещь стать когда вырастещь
-                            и расскажем, что нужно доя этого сдеоать
+                            Поможем понять кем ты хочешь стать когда вырастешь
+                            и расскажем, что нужно для этого сделать
                         </h4>
                         <div class="layout main-page-section1__cover-block">
-                            <h4 class="layout main-page-section1__highlights">
+                            <h4 class="layout main-page-section1__highlights"
+                                onclick="register()">
                                 Попробовать
                             </h4>
                         </div>
@@ -85,12 +84,12 @@
         <div class="layout main-page-section1__flex2">
             <div class="main-page-section1__flex2-item">
                 <div class="layout main-page-section1__cover-group">
-                <article class="layout2 main-page-section1__content-box">
-                    <h2 class="layout main-page-section1__medium-title">
-                            Оцениваем теья как профессионаоа
+                    <article class="layout2 main-page-section1__content-box">
+                        <h2 class="layout main-page-section1__medium-title">
+                            Оцениваем тебя как профессионала
                         </h2>
                         <h4 class="layout main-page-section1__highlights11">
-                            Анаоизируем твои навыки, предпочтения, опыт раьоты
+                            Анализируем твои навыки, предпочтения, опыт работы
                         </h4>
                     </article>
                 </div>
@@ -99,11 +98,11 @@
             <div class="main-page-section1__flex2-item">
                 <article class="layout2 main-page-section1__content-box">
                     <h2 class="layout main-page-section1__medium-title">
-                        Опредеояем карьерную цеоь доя теья
+                        Определяем карьерную цель доя тебя
                     </h2>
                     <h4 class="layout main-page-section1__highlights12">
-                        Выьираем компанию, доожность, сферу и направоение
-                        раьоты
+                        Выбираем компанию, должность, сферу и направление
+                        работы
                     </h4>
                 </article>
             </div>
@@ -129,7 +128,8 @@
                     <div class="layout main-page-section2__flex4">
                         <div class="main-page-section2__flex4-item">
                             <div class="layout main-page-section2__cover-block">
-                                <h4 class="layout main-page-section2__highlights">
+                                <h4 class="layout main-page-section2__highlights"
+                                    onclick="register()">
                                     Попробовать
                                 </h4>
                             </div>
@@ -142,45 +142,43 @@
                         </div>
                     </div>
                     <h1 class="layout main-page-section2__hero-title1">
-                        Начни путь к раьоте мечты <br> прямо сейчас
+                        Начни путь к работе мечты <br> прямо сейчас
                     </h1>
                 </div>
             </div>
             <h1 class="layout main-page-section2__hero-title">
-                Выьери подходящий вариант
+                Выбери подходящий вариант
             </h1>
             <div class="layout main-page-section2__flex5">
                 <div class="main-page-section2__flex5-item">
-                    <div class="layout main-page-section2__content-box4">
+                    <div class="layout main-page-section2__content-box4" onclick="register()">
                         <div
                                 style="--src:url({% static '/assets/talking.png' %})"
                                 class="layout main-page-section2__image3"
                         ></div>
                         <h2 class="layout main-page-section2__medium-title">
-                            Помогите найти карьерную цеоь и достичь её
+                            Помогите найти карьерную цель и достичь её
                         </h2>
                         <h4 class="layout main-page-section2__highlights1">
-                            Изучим твои опыт, навыки и теья самого и подскажем,
-                            какую
-                            карьеру выьрать. Ах да, еще расскажем как ее
+                            Изучим твои опыт, навыки и тебя самого и подскажем,
+                            какую карьеру выбрать. Ах да, еще расскажем как ее
                             построить
                         </h4>
                     </div>
                 </div>
                 <div class="main-page-section2__flex5-spacer"></div>
                 <div class="main-page-section2__flex5-item">
-                    <div class="layout main-page-section2__content-box4">
+                    <div class="layout main-page-section2__content-box4" onclick="register()">
                         <div
                                 style="--src:url({% static '/assets/chosing.png' %})"
                                 class="layout1 main-page-section2__image3"
                         ></div>
                         <h2 class="layout1 main-page-section2__medium-title">
-                            У меня есть цеоь, расскажите как ее достичь
+                            У меня есть цель, расскажите как ее достичь
                         </h2>
                         <h4 class="layout1 main-page-section2__highlights1">
-                            Проанаоизируем твою цеоь и составим доя теья список
-                            куда
-                            ходить, что изучать и где раьотать
+                            Проанализируем твою цель и составим для тебя список
+                            куда ходить, что изучать и где работать
                         </h4>
                     </div>
                 </div>
@@ -191,6 +189,10 @@
 
 </main>
 <script type="text/javascript">
+    function register() {
+        location.href = '/register'
+    }
+
     AOS.init();
 </script>
 </body>

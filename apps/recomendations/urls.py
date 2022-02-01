@@ -4,5 +4,5 @@ from apps.recomendations import views
 
 urlpatterns = [
     path('', views.main),
-    path('stub', views.stub),
+    path('stub/', views.stub),
 ]

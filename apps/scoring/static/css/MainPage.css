@@ -175,7 +175,7 @@
     position: relative;
     height: -webkit-min-content;
     height: -moz-min-content;
-    height: min-content;
+    height: 600px;
     width: 89.17%;
     margin: 134px auto 0px;
 }
@@ -585,8 +585,8 @@
 .main-page-section1__hero-title.layout1 {
     position: relative;
     height: min-content;
-    width: 10%;
-    margin: 240px auto 0px;
+    width: max-content;
+    margin: 10px auto 0px;
 }
 
 @media (max-width: 1399px) {
