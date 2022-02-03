@@ -1,0 +1,151 @@
+{% extends 'main/navbar.html' %}
+{% load static %}
+{% block content %}
+    <div class="layout main-page-section1__group">
+        <h1 class="layout main-page-section1__hero-title">
+            Достигай своих<br>карьерных целей
+        </h1>
+        <div class="layout main-page-section1__flex">
+            <div class="main-page-section1__flex-item">
+                <div class="layout main-page-section1__flex1">
+                    <h4 class="layout main-page-section1__highlights1">
+                        Поможем понять кем ты хочешь стать когда вырастешь
+                        и расскажем, что нужно для этого сделать
+                    </h4>
+                    <div class="layout main-page-section1__cover-block">
+                        <h4 class="layout main-page-section1__highlights"
+                            onclick="register()">
+                            Попробовать
+                        </h4>
+                    </div>
+                </div>
+            </div>
+            <div class="main-page-section1__flex-spacer"></div>
+            <div class="main-page-section1__flex-item1">
+                <div
+                        style="--src:url({% static '/assets/pitching.png' %})"
+                        class="layout main-page-section1__image"
+                ></div>
+            </div>
+        </div>
+    </div>
+    <h1 class="layout1 main-page-section1__hero-title">
+        Выбери подходящий вариант
+    </h1>
+    <div class="layout main-page-section2__flex5">
+        <div class="main-page-section2__flex5-item">
+            <div class="layout main-page-section2__content-box4"
+                 onclick="register()">
+                <div
+                        style="--src:url({% static '/assets/talking.png' %})"
+                        class="layout main-page-section2__image3"
+                ></div>
+                <h2 class="layout main-page-section2__medium-title">
+                    Помогите найти карьерную цель и достичь её
+                </h2>
+                <h4 class="layout main-page-section2__highlights1">
+                    Изучим твои опыт, навыки и тебя самого и подскажем,
+                    какую карьеру выбрать. Ах да, еще расскажем как ее
+                    построить
+                </h4>
+            </div>
+        </div>
+        <div class="main-page-section2__flex5-spacer"></div>
+        <div class="main-page-section2__flex5-item">
+            <div class="layout main-page-section2__content-box4"
+                 onclick="register()">
+                <div
+                        style="--src:url({% static '/assets/chosing.png' %})"
+                        class="layout1 main-page-section2__image3"
+                ></div>
+                <h2 class="layout1 main-page-section2__medium-title">
+                    У меня есть цель, расскажите как ее достичь
+                </h2>
+                <h4 class="layout1 main-page-section2__highlights1">
+                    Проанализируем твою цель и составим для тебя список
+                    куда ходить, что изучать и где работать
+                </h4>
+            </div>
+        </div>
+    </div>
+    <!-- ======= End section2 ======= -->
+    <section>
+        <h1 class="layout1 main-page-section1__hero-title">
+            Как мы можем помочь?
+        </h1>
+        <div class="layout main-page-section1__flex2">
+            <div class="main-page-section1__flex2-item">
+                <div class="layout main-page-section1__cover-group">
+                    <article class="layout2 main-page-section1__content-box">
+                        <h2 class="layout main-page-section1__medium-title">
+                            Оцениваем тебя как профессионала
+                        </h2>
+                        <h4 class="layout main-page-section1__highlights11">
+                            Анализируем твои навыки, предпочтения, опыт работы
+                        </h4>
+                    </article>
+                </div>
+            </div>
+            <div class="main-page-section1__flex2-spacer"></div>
+            <div class="main-page-section1__flex2-item">
+                <article class="layout2 main-page-section1__content-box">
+                    <h2 class="layout main-page-section1__medium-title">
+                        Определяем карьерную цель доя тебя
+                    </h2>
+                    <h4 class="layout main-page-section1__highlights12">
+                        Выбираем компанию, должность, сферу и направление
+                        работы
+                    </h4>
+                </article>
+            </div>
+            <div class="main-page-section1__flex2-spacer"></div>
+            <div class="main-page-section1__flex2-item">
+                <article class="layout2 main-page-section1__content-box">
+                    <h2 class="layout main-page-section1__medium-title">
+                        Рассказываем как построить карьеру мечты
+                    </h2>
+                    <h4 class="layout main-page-section1__highlights13">
+                        Даем рекомендации по мероприятиям, курсам и вакансиям
+                    </h4>
+                </article>
+            </div>
+        </div>
+    </section>
+    <comment content="======= End section1 =======" break="true"></comment
+    ><!-- ======= section2 ======= -->
+    <section class="layout main-page-section2__container">
+        <div class="layout main-page-section2__flex3">
+            <div class="layout main-page-section2__block2">
+                <div class="layout main-page-section2__group">
+                    <div class="layout main-page-section2__flex4">
+                        <div class="main-page-section2__flex4-item">
+                            <div class="layout main-page-section2__cover-block">
+                                <h4 class="layout main-page-section2__highlights"
+                                    onclick="register()">
+                                    Попробовать
+                                </h4>
+                            </div>
+                        </div>
+                        <div class="main-page-section2__flex4-item1">
+                            <div
+                                    style="--src:url({% static '/assets/people.png' %})"
+                                    class="layout main-page-section2__image2"
+                            ></div>
+                        </div>
+                    </div>
+                    <h1 class="layout main-page-section2__hero-title1">
+                        Начни путь к работе мечты прямо сейчас
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block extrajs %}
+    <script type="text/javascript">
+        function register() {
+            location.href = '/register'
+        }
+    </script>
+{% endblock %}

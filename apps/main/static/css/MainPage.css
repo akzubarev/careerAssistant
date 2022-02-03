@@ -1112,7 +1112,7 @@
     height: -moz-min-content;
     height: min-content;
     flex-grow: 1;
-    margin: 137px 0px;
+    margin: 0 0;
 }
 
 @media (max-width: 1199px) {
@@ -1427,7 +1427,7 @@
     bottom: 113px;
     left: 0px;
     right: 0px;
-    width: 34.92%;
+    width: 25%;
     margin: 0px 65.08% 0px 0%;
 }
 

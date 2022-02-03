@@ -9,7 +9,7 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('recomendations', '0001_initial'),
+        ('recommendations', '0001_initial'),
         ('users', '0001_initial'),
     ]
 
@@ -27,6 +27,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='article',
             name='relatedArticles',
-            field=models.ManyToManyField(related_name='_recomendations_article_relatedArticles_+', to='recomendations.Article'),
+            field=models.ManyToManyField(related_name='_recommendations_article_relatedArticles_+', to='recommendations.Article'),
         ),
     ]

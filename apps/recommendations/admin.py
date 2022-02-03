@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from apps.recomendations.models import Event, Article, Course, \
+from apps.recommendations.models import Event, Article, Course, \
     Vacancy
 
 

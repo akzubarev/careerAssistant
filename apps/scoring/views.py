@@ -2,7 +2,8 @@ from django.template.response import TemplateResponse
 
 
 def main(request):
-    return TemplateResponse(request, 'scoring/MainPage.html', {})
+    return TemplateResponse(request,
+                            'scoring/../main/templates/main/MainPage.html', {})
 
 
 def form(request):

@@ -1,8 +1,7 @@
 from django.urls import path
-
-from apps.recomendations import views
+from . import views
 
 urlpatterns = [
     path('', views.main),
-    path('stub/', views.stub),
+    path('register', views.register),
 ]

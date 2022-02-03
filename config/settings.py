@@ -25,8 +25,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # Apps
+    'apps.main',
     'apps.users',
-    'apps.recomendations',
+    'apps.recommendations',
     'apps.scoring',
 ]
 
