@@ -65,81 +65,81 @@
   box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.0627451);
   border-radius: 20px 20px 20px 20px; }
 
-.form-medium-title.layout {
+.title2-to-left.layout {
   position: relative;
   height: -webkit-min-content;
   height: -moz-min-content;
   height: min-content;
   margin: 30px 18px 0px 30px; }
   @media (max-width: 1199px) {
-    .form-medium-title.layout {
+    .title2-to-left.layout {
       margin: 26px 16px 0px 26px; } }
   @media (max-width: 991px) {
-    .form-medium-title.layout {
+    .title2-to-left.layout {
       margin: 22px 13px 0px 22px; } }
   @media (max-width: 767px) {
-    .form-medium-title.layout {
+    .title2-to-left.layout {
       margin: 19px 11px 0px 19px; } }
   @media (max-width: 575px) {
-    .form-medium-title.layout {
+    .title2-to-left.layout {
       margin: 17px 10px 0px 17px; } }
   @media (max-width: 479px) {
-    .form-medium-title.layout {
+    .title2-to-left.layout {
       margin: 15px 9px 0px 15px; } }
   @media (max-width: 383px) {
-    .form-medium-title.layout {
+    .title2-to-left.layout {
       margin: 14px 9px 0px 14px; } }
 
-.form-medium-title {
+.title2-to-left {
   font: 500 24px/1.2 "Stratos LC Web", Helvetica, Arial, serif;
   color: #232323;
   letter-spacing: -1.2px; }
   @media (max-width: 1199px) {
-    .form-medium-title {
+    .title2-to-left {
       font-size: 22px;
       text-align: left; } }
   @media (max-width: 991px) {
-    .form-medium-title {
+    .title2-to-left {
       font-size: 20px; } }
   @media (max-width: 767px) {
-    .form-medium-title {
+    .title2-to-left {
       font-size: 19px; } }
   @media (max-width: 575px) {
-    .form-medium-title {
+    .title2-to-left {
       font-size: 18px; } }
   @media (max-width: 479px) {
-    .form-medium-title {
+    .title2-to-left {
       font-size: 17px; } }
   @media (max-width: 383px) {
-    .form-medium-title {
+    .title2-to-left {
       font-size: 16px; } }
 
-.form-cover-block1.layout {
+.form_choice_background.layout {
   position: relative;
   height: -webkit-min-content;
   height: -moz-min-content;
   height: min-content;
   margin: 32px 30px 43px; }
   @media (max-width: 1199px) {
-    .form-cover-block1.layout {
+    .form_choice_background.layout {
       margin: 28px 26px 37px; } }
   @media (max-width: 991px) {
-    .form-cover-block1.layout {
+    .form_choice_background.layout {
       margin: 24px 22px 30px; } }
   @media (max-width: 767px) {
-    .form-cover-block1.layout {
+    .form_choice_background.layout {
       margin: 20px 19px 25px; } }
   @media (max-width: 575px) {
-    .form-cover-block1.layout {
+    .form_choice_background.layout {
       margin: 18px 17px 22px; } }
   @media (max-width: 479px) {
-    .form-cover-block1.layout {
+    .form_choice_background.layout {
       margin: 16px 15px 19px; } }
   @media (max-width: 383px) {
-    .form-cover-block1.layout {
+    .form_choice_background.layout {
       margin: 15px 14px 17px; } }
 
-.form-cover-block1 {
+.form_choice_background {
   display: flex;
   background-color: #f1f1f1;
   border-radius: 10px 10px 10px 10px; }
@@ -214,54 +214,54 @@
     .form-content-box3.layout1 {
       margin: 19px 0px 0px 2px; } }
 
-.form-medium-title.layout1 {
+.title2-to-left.layout1 {
   position: relative;
   height: -webkit-min-content;
   height: -moz-min-content;
   height: min-content;
   margin: 30px 27px 0px 30px; }
   @media (max-width: 1199px) {
-    .form-medium-title.layout1 {
+    .title2-to-left.layout1 {
       margin: 26px 24px 0px 26px; } }
   @media (max-width: 991px) {
-    .form-medium-title.layout1 {
+    .title2-to-left.layout1 {
       margin: 22px 20px 0px 22px; } }
   @media (max-width: 767px) {
-    .form-medium-title.layout1 {
+    .title2-to-left.layout1 {
       margin: 19px 17px 0px 19px; } }
   @media (max-width: 575px) {
-    .form-medium-title.layout1 {
+    .title2-to-left.layout1 {
       margin: 17px 15px 0px 17px; } }
   @media (max-width: 479px) {
-    .form-medium-title.layout1 {
+    .title2-to-left.layout1 {
       margin: 15px 14px 0px 15px; } }
   @media (max-width: 383px) {
-    .form-medium-title.layout1 {
+    .title2-to-left.layout1 {
       margin: 14px 13px 0px 14px; } }
 
-.form-cover-block1.layout1 {
+.form_choice_background.layout1 {
   position: relative;
   height: -webkit-min-content;
   height: -moz-min-content;
   height: min-content;
   margin: 61px 30px 43px; }
   @media (max-width: 1199px) {
-    .form-cover-block1.layout1 {
+    .form_choice_background.layout1 {
       margin: 52px 26px 37px; } }
   @media (max-width: 991px) {
-    .form-cover-block1.layout1 {
+    .form_choice_background.layout1 {
       margin: 43px 22px 30px; } }
   @media (max-width: 767px) {
-    .form-cover-block1.layout1 {
+    .form_choice_background.layout1 {
       margin: 35px 19px 25px; } }
   @media (max-width: 575px) {
-    .form-cover-block1.layout1 {
+    .form_choice_background.layout1 {
       margin: 31px 17px 22px; } }
   @media (max-width: 479px) {
-    .form-cover-block1.layout1 {
+    .form_choice_background.layout1 {
       margin: 27px 15px 19px; } }
   @media (max-width: 383px) {
-    .form-cover-block1.layout1 {
+    .form_choice_background.layout1 {
       margin: 24px 14px 17px; } }
 
 .form-cover-block.layout {
@@ -377,32 +377,32 @@
   box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.0627451);
   border-radius: 20px 20px 20px 20px; }
 
-.form-cover-block1.layout2 {
+.form_choice_background.layout2 {
   position: relative;
   height: -webkit-min-content;
   height: -moz-min-content;
   height: min-content;
   margin: 52px 30px 0px; }
   @media (max-width: 1199px) {
-    .form-cover-block1.layout2 {
+    .form_choice_background.layout2 {
       margin: 44px 26px 0px; } }
   @media (max-width: 991px) {
-    .form-cover-block1.layout2 {
+    .form_choice_background.layout2 {
       margin: 36px 22px 0px; } }
   @media (max-width: 767px) {
-    .form-cover-block1.layout2 {
+    .form_choice_background.layout2 {
       margin: 29px 19px 0px; } }
   @media (max-width: 575px) {
-    .form-cover-block1.layout2 {
+    .form_choice_background.layout2 {
       margin: 25px 17px 0px; } }
   @media (max-width: 479px) {
-    .form-cover-block1.layout2 {
+    .form_choice_background.layout2 {
       margin: 22px 15px 0px; } }
   @media (max-width: 383px) {
-    .form-cover-block1.layout2 {
+    .form_choice_background.layout2 {
       margin: 20px 14px 0px; } }
 
-.form-highlights2.layout {
+.form_choice_text.layout {
   position: relative;
   height: -webkit-min-content;
   height: -moz-min-content;
@@ -410,65 +410,65 @@
   flex-grow: 1;
   margin: 13px 20px 15px; }
   @media (max-width: 1199px) {
-    .form-highlights2.layout {
+    .form_choice_text.layout {
       margin: 11px 18px 13px; } }
   @media (max-width: 991px) {
-    .form-highlights2.layout {
+    .form_choice_text.layout {
       margin: 10px 15px 11px; } }
   @media (max-width: 767px) {
-    .form-highlights2.layout {
+    .form_choice_text.layout {
       margin: 8px 13px 9px; } }
   @media (max-width: 575px) {
-    .form-highlights2.layout {
+    .form_choice_text.layout {
       margin: 7px 11px 9px; } }
   @media (max-width: 479px) {
-    .form-highlights2.layout {
+    .form_choice_text.layout {
       margin: 7px 10px 8px; } }
   @media (max-width: 383px) {
-    .form-highlights2.layout {
+    .form_choice_text.layout {
       margin: 6px 10px 7px; } }
 
-.form-highlights2 {
+.form_choice_text {
   font: 18px/1.2 "Stratos LC Web", Helvetica, Arial, serif;
   color: #232323;
   letter-spacing: -0.9px; }
   @media (max-width: 1199px) {
-    .form-highlights2 {
+    .form_choice_text {
       font-size: 17px;
       text-align: left; } }
   @media (max-width: 991px) {
-    .form-highlights2 {
+    .form_choice_text {
       font-size: 16px; } }
   @media (max-width: 767px) {
-    .form-highlights2 {
+    .form_choice_text {
       font-size: 15px; } }
   @media (max-width: 479px) {
-    .form-highlights2 {
+    .form_choice_text {
       font-size: 14px; } }
 
-.form-cover-block1.layout3 {
+.form_choice_background.layout3 {
   position: relative;
   height: -webkit-min-content;
   height: -moz-min-content;
   height: min-content;
   margin: 10px 30px 0px; }
   @media (max-width: 1199px) {
-    .form-cover-block1.layout3 {
+    .form_choice_background.layout3 {
       margin: 9px 26px 0px; } }
   @media (max-width: 991px) {
-    .form-cover-block1.layout3 {
+    .form_choice_background.layout3 {
       margin: 7px 22px 0px; } }
   @media (max-width: 767px) {
-    .form-cover-block1.layout3 {
+    .form_choice_background.layout3 {
       margin: 6px 19px 0px; } }
   @media (max-width: 575px) {
-    .form-cover-block1.layout3 {
+    .form_choice_background.layout3 {
       margin: 6px 17px 0px; } }
   @media (max-width: 479px) {
-    .form-cover-block1.layout3 {
+    .form_choice_background.layout3 {
       margin: 5px 15px 0px; } }
   @media (max-width: 383px) {
-    .form-cover-block1.layout3 {
+    .form_choice_background.layout3 {
       margin: 5px 14px 0px; } }
 
 .form-highlights3.layout {
@@ -515,29 +515,29 @@
     .form-highlights3 {
       font-size: 14px; } }
 
-.form-cover-block1.layout4 {
+.form_choice_background.layout4 {
   position: relative;
   height: -webkit-min-content;
   height: -moz-min-content;
   height: min-content;
   margin: 10px 30px 0px; }
   @media (max-width: 1199px) {
-    .form-cover-block1.layout4 {
+    .form_choice_background.layout4 {
       margin: 9px 26px 0px; } }
   @media (max-width: 991px) {
-    .form-cover-block1.layout4 {
+    .form_choice_background.layout4 {
       margin: 7px 22px 0px; } }
   @media (max-width: 767px) {
-    .form-cover-block1.layout4 {
+    .form_choice_background.layout4 {
       margin: 6px 19px 0px; } }
   @media (max-width: 575px) {
-    .form-cover-block1.layout4 {
+    .form_choice_background.layout4 {
       margin: 6px 17px 0px; } }
   @media (max-width: 479px) {
-    .form-cover-block1.layout4 {
+    .form_choice_background.layout4 {
       margin: 5px 15px 0px; } }
   @media (max-width: 383px) {
-    .form-cover-block1.layout4 {
+    .form_choice_background.layout4 {
       margin: 5px 14px 0px; } }
 
 .form-highlights4.layout {
@@ -584,29 +584,29 @@
     .form-highlights4 {
       font-size: 14px; } }
 
-.form-cover-block1.layout5 {
+.form_choice_background.layout5 {
   position: relative;
   height: -webkit-min-content;
   height: -moz-min-content;
   height: min-content;
   margin: 10px 30px 50px; }
   @media (max-width: 1199px) {
-    .form-cover-block1.layout5 {
+    .form_choice_background.layout5 {
       margin: 9px 26px 43px; } }
   @media (max-width: 991px) {
-    .form-cover-block1.layout5 {
+    .form_choice_background.layout5 {
       margin: 7px 22px 35px; } }
   @media (max-width: 767px) {
-    .form-cover-block1.layout5 {
+    .form_choice_background.layout5 {
       margin: 6px 19px 28px; } }
   @media (max-width: 575px) {
-    .form-cover-block1.layout5 {
+    .form_choice_background.layout5 {
       margin: 6px 17px 24px; } }
   @media (max-width: 479px) {
-    .form-cover-block1.layout5 {
+    .form_choice_background.layout5 {
       margin: 5px 15px 21px; } }
   @media (max-width: 383px) {
-    .form-cover-block1.layout5 {
+    .form_choice_background.layout5 {
       margin: 5px 14px 19px; } }
 
 .form-highlights5.layout {
@@ -691,29 +691,29 @@
   box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.0627451);
   border-radius: 20px 20px 20px 20px; }
 
-.form-cover-block1.layout6 {
+.form_choice_background.layout6 {
   position: relative;
   height: -webkit-min-content;
   height: -moz-min-content;
   height: min-content;
   margin: 52px 30px 0px; }
   @media (max-width: 1199px) {
-    .form-cover-block1.layout6 {
+    .form_choice_background.layout6 {
       margin: 44px 26px 0px; } }
   @media (max-width: 991px) {
-    .form-cover-block1.layout6 {
+    .form_choice_background.layout6 {
       margin: 36px 22px 0px; } }
   @media (max-width: 767px) {
-    .form-cover-block1.layout6 {
+    .form_choice_background.layout6 {
       margin: 29px 19px 0px; } }
   @media (max-width: 575px) {
-    .form-cover-block1.layout6 {
+    .form_choice_background.layout6 {
       margin: 25px 17px 0px; } }
   @media (max-width: 479px) {
-    .form-cover-block1.layout6 {
+    .form_choice_background.layout6 {
       margin: 22px 15px 0px; } }
   @media (max-width: 383px) {
-    .form-cover-block1.layout6 {
+    .form_choice_background.layout6 {
       margin: 20px 14px 0px; } }
 
 .form-highlights6.layout {
@@ -760,29 +760,29 @@
     .form-highlights6 {
       font-size: 14px; } }
 
-.form-cover-block1.layout7 {
+.form_choice_background.layout7 {
   position: relative;
   height: -webkit-min-content;
   height: -moz-min-content;
   height: min-content;
   margin: 10px 30px 0px; }
   @media (max-width: 1199px) {
-    .form-cover-block1.layout7 {
+    .form_choice_background.layout7 {
       margin: 9px 26px 0px; } }
   @media (max-width: 991px) {
-    .form-cover-block1.layout7 {
+    .form_choice_background.layout7 {
       margin: 7px 22px 0px; } }
   @media (max-width: 767px) {
-    .form-cover-block1.layout7 {
+    .form_choice_background.layout7 {
       margin: 6px 19px 0px; } }
   @media (max-width: 575px) {
-    .form-cover-block1.layout7 {
+    .form_choice_background.layout7 {
       margin: 6px 17px 0px; } }
   @media (max-width: 479px) {
-    .form-cover-block1.layout7 {
+    .form_choice_background.layout7 {
       margin: 5px 15px 0px; } }
   @media (max-width: 383px) {
-    .form-cover-block1.layout7 {
+    .form_choice_background.layout7 {
       margin: 5px 14px 0px; } }
 
 .form-highlights7.layout {
@@ -829,29 +829,29 @@
     .form-highlights7 {
       font-size: 14px; } }
 
-.form-cover-block1.layout8 {
+.form_choice_background.layout8 {
   position: relative;
   height: -webkit-min-content;
   height: -moz-min-content;
   height: min-content;
   margin: 10px 30px 50px; }
   @media (max-width: 1199px) {
-    .form-cover-block1.layout8 {
+    .form_choice_background.layout8 {
       margin: 9px 26px 43px; } }
   @media (max-width: 991px) {
-    .form-cover-block1.layout8 {
+    .form_choice_background.layout8 {
       margin: 7px 22px 35px; } }
   @media (max-width: 767px) {
-    .form-cover-block1.layout8 {
+    .form_choice_background.layout8 {
       margin: 6px 19px 28px; } }
   @media (max-width: 575px) {
-    .form-cover-block1.layout8 {
+    .form_choice_background.layout8 {
       margin: 6px 17px 24px; } }
   @media (max-width: 479px) {
-    .form-cover-block1.layout8 {
+    .form_choice_background.layout8 {
       margin: 5px 15px 21px; } }
   @media (max-width: 383px) {
-    .form-cover-block1.layout8 {
+    .form_choice_background.layout8 {
       margin: 5px 14px 19px; } }
 
 .form-highlights8.layout {

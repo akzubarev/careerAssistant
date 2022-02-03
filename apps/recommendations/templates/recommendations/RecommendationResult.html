@@ -1,0 +1,107 @@
+{% load static %}
+{% block extrahead %}
+    <link rel="stylesheet" type="text/css"
+          href="{% static '/css/RecommendationResult.css' %}"/>
+{% endblock %}
+{% block content %}
+    <section class="layout results_section_container">
+        <div class="layout results_section_group">
+
+            <div class="layout results_goal_group">
+                <h2 class="layout results_goal_header">
+                    Твоя карьерная цель на 5 лет
+                </h2>
+                <h1 class="layout results_title">
+                    Senior бизнес-аналитик в Тинькофф
+                </h1>
+                <div class="layout results_goal_button">
+                    <h4 class="layout results_goal_button_text"
+                        onclick="form()"> Пройти тестирование заново
+                    </h4>
+                </div>
+                <div style="--src:url({% static 'assets/stonks.png' %})"
+                     class="layout results_goal_image">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="layout recommendation_container">
+        <div class="layout recommendation_flex">
+            <h1 class="layout recommendations_title">
+                Рекомендации
+            </h1>
+            <h1 class="layout recommendation_row_title">
+                Мероприятия
+            </h1>
+            <div class="layout recommendations_row">
+                {% for _ in events_list %}
+                    <div class="recommendation_card">
+                        <div class="layout recommendation_card_group">
+                            <div class="layout recommendation_card_flex">
+                                <h2 class="layout2 recommendation_card_title">
+                                    Как стать аналитиком данных и построить
+                                    карьеру в IT
+                                </h2>
+                                <h4 class="layout recommendation_card_text">
+                                    Узнайте, как освоить профессию и начать
+                                    работать в перспективной сфере, на вебинаре
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="recommendation_row_spacer"></div>
+                {% endfor %}
+            </div>
+            <h1 class="layout1 recommendation_row_title">
+                Обучение
+            </h1>
+            <div class="layout recommendations_row">
+                {% for _ in events_list %}
+                    <div class="recommendation_card">
+                        <div class="layout recommendation_card_group">
+                            <div class="layout recommendation_card_flex">
+                                <h2 class="layout2 recommendation_card_title">
+                                    KPMG Advisory School
+                                </h2>
+                                <h4 class="layout recommendation_card_text">
+                                    Ты сможешь погрузиться в искусство бизнеса
+                                    на KPMG Advisory School.
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="recommendation_row_spacer"></div>
+                {% endfor %}
+            </div>
+            <h1 class="layout2 recommendation_row_title">
+                Вакансии
+            </h1>
+            <div class="layout recommendations_row">
+                {% for _ in events_list %}
+                    <div class="recommendation_card">
+                        <div class="layout recommendation_card_group">
+                            <div class="layout recommendation_card_flex">
+                                <h2 class="layout2 recommendation_card_title">
+                                    Бизнес-аналитик
+                                </h2>
+                                <h4 class="layout recommendation_card_text">
+                                    Станьте специалистом, который влияет на
+                                    работу целых корпораций, всего за шесть
+                                    месяцев
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="recommendation_row_spacer"></div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}
+{% block extrajs %}
+    <script type="text/javascript">
+        function form() {
+            location.href = '/form'
+        }
+    </script>
+{% endblock %}

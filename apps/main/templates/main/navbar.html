@@ -1,63 +1,76 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
-<!--  This source code is exported from pxCode, you can get more document from https://www.pxcode.io  -->
+<html lang="ru">
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 
-    <link
-            rel="stylesheet"
-            type="text/css"
-            href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-            integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
-            crossorigin="anonymous"
-    />
-    <link
-            rel="stylesheet"
-            type="text/css"
-            href="https://unpkg.com/aos@2.3.1/dist/aos.css"
-    />
     <link rel="stylesheet" type="text/css"
-          href="{% static 'css/common.css' %}"/>
+          href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+          crossorigin="anonymous"/>
     <link rel="stylesheet" type="text/css"
-          href="{% static 'css/fonts.css' %}"/>
+          href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="{% static '/css/common.css' %}"/>
+    <link rel="stylesheet" type="text/css"
+          href="{% static '/css/fonts.css' %}"/>
     <link rel="stylesheet" type="text/css"
           href="{% static 'css/MainPage.css' %}"/>
+    <link rel="stylesheet" type="text/css"
+          href="{% static 'css/RecommendationResult.css' %}"/>
+    {% block extrahead %}
+    {% endblock %}
 
-    <script
-            type="text/javascript"
-            src="https://unpkg.com/aos@2.3.1/dist/aos.js"
-    ></script>
-    <script
-            type="text/javascript"
-            src="https://unpkg.com/headroom.js@0.12.0/dist/headroom.min.js"
-    ></script>
+
+    <title>Карьерный ассистент</title>
+    <script type="text/javascript"
+            src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script type="text/javascript"
+            src="https://unpkg.com/headroom.js@0.12.0/dist/headroom.min.js"></script>
+
 </head>
 
 <body style="display: flex">
 <main class="main-page layout main-page-main">
-    <!-- ======= section1 ======= -->
-    <section class="layout main-page-section1__container">
-        <div class="layout main-page-section1__content-box2">
-            <div class="main-page-section1__content-box2-item">
-                <div
-                        style="--src:url({% static '/assets/arrows.png' %})"
-                        class="layout main-page-section1__block1"
-                ></div>
-            </div>
-            <div class="main-page-section1__content-box2-spacer"></div>
-            <h4 class="layout main-page-section1__highlights2">Ассистент</h4>
+    <div class="layout navbar_box">
+        <div class="navbar_box_item">
+            <div
+                    style="--src:url({% static '/assets/arrows.png' %})"
+                    class="layout navbar_arrows"
+            ></div>
         </div>
-        {% block content %}
-        {% endblock %}
-    </section>
-</main>
-<script type="text/javascript">
-    {% block extrajs %}
+        <div class="navbar_spacer"></div>
+        <h4 class="layout navbar_title">
+            Ассистент
+        </h4>
+        <div class="navbar_long_spacer"></div>
+        <div class="layout navbar_profile_name">
+            Агутин Леня
+        </div>
+        <div class="navbar_spacer_3"></div>
+        <div class="navbar_avatar_box">
+            <div onclick="profile()"
+                 style="--src:url({% static 'assets/profile_pic.png' %})"
+                 class="layout navbar_avatar">
+            </div>
+        </div>
+    </div>
+
+    {% block content %}
+
     {% endblock %}
+</main>
+
+<script type="text/javascript">
+    function profile() {
+        location.href = '/profile'
+    }
+
     AOS.init();
 </script>
+{% block extrajs %}
+{% endblock %}
 </body>
 </html>

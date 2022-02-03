@@ -1,67 +1,69 @@
 {% extends 'main/navbar.html' %}
 {% load static %}
+
+{% block extrahead %}
+
+{% endblock %}
 {% block content %}
-    <div class="layout main-page-section1__group">
-        <h1 class="layout main-page-section1__hero-title">
+    <div class="layout main_group">
+        <h1 class="layout title_1">
             Достигай своих<br>карьерных целей
         </h1>
-        <div class="layout main-page-section1__flex">
-            <div class="main-page-section1__flex-item">
-                <div class="layout main-page-section1__flex1">
-                    <h4 class="layout main-page-section1__highlights1">
+        <div class="layout main_flex">
+            <div class="main_flex_item">
+                <div class="layout main_text_subflex">
+                    <h4 class="layout main_subtitle">
                         Поможем понять кем ты хочешь стать когда вырастешь
                         и расскажем, что нужно для этого сделать
                     </h4>
-                    <div class="layout main-page-section1__cover-block">
-                        <h4 class="layout main-page-section1__highlights"
+                    <div class="layout button">
+                        <h4 class="layout button_text"
                             onclick="register()">
                             Попробовать
                         </h4>
                     </div>
                 </div>
             </div>
-            <div class="main-page-section1__flex-spacer"></div>
-            <div class="main-page-section1__flex-item1">
-                <div
-                        style="--src:url({% static '/assets/pitching.png' %})"
-                        class="layout main-page-section1__image"
-                ></div>
+            <div class="main_flex_spacer"></div>
+            <div class="main_image_subflex">
+                <div style="--src:url({% static '/assets/pitching.png' %})"
+                     class="layout main_image">
+                </div>
             </div>
         </div>
     </div>
-    <h1 class="layout1 main-page-section1__hero-title">
+    <h1 class="layout1 title_1">
         Выбери подходящий вариант
     </h1>
-    <div class="layout main-page-section2__flex5">
-        <div class="main-page-section2__flex5-item">
-            <div class="layout main-page-section2__content-box4"
+    <div class="layout career_goal_flex">
+        <div class="career_goal_flex_item">
+            <div class="layout career_goal_choice"
                  onclick="register()">
-                <div
-                        style="--src:url({% static '/assets/talking.png' %})"
-                        class="layout main-page-section2__image3"
-                ></div>
-                <h2 class="layout main-page-section2__medium-title">
+                <div style="--src:url({% static '/assets/talking.png' %})"
+                     class="layout career_goal_image">
+
+                </div>
+                <h2 class="layout title_2">
                     Помогите найти карьерную цель и достичь её
                 </h2>
-                <h4 class="layout main-page-section2__highlights1">
+                <h4 class="layout normal_text">
                     Изучим твои опыт, навыки и тебя самого и подскажем,
                     какую карьеру выбрать. Ах да, еще расскажем как ее
                     построить
                 </h4>
             </div>
         </div>
-        <div class="main-page-section2__flex5-spacer"></div>
-        <div class="main-page-section2__flex5-item">
-            <div class="layout main-page-section2__content-box4"
+        <div class="career_goal_flex_spacer"></div>
+        <div class="career_goal_flex_item">
+            <div class="layout career_goal_choice"
                  onclick="register()">
-                <div
-                        style="--src:url({% static '/assets/chosing.png' %})"
-                        class="layout1 main-page-section2__image3"
-                ></div>
-                <h2 class="layout1 main-page-section2__medium-title">
+                <div style="--src:url({% static '/assets/chosing.png' %})"
+                     class="layout1 career_goal_image">
+                </div>
+                <h2 class="layout1 title_2">
                     У меня есть цель, расскажите как ее достичь
                 </h2>
-                <h4 class="layout1 main-page-section2__highlights1">
+                <h4 class="layout1 normal_text">
                     Проанализируем твою цель и составим для тебя список
                     куда ходить, что изучать и где работать
                 </h4>
@@ -70,45 +72,24 @@
     </div>
     <!-- ======= End section2 ======= -->
     <section>
-        <h1 class="layout1 main-page-section1__hero-title">
-            Как мы можем помочь?
-        </h1>
-        <div class="layout main-page-section1__flex2">
-            <div class="main-page-section1__flex2-item">
-                <div class="layout main-page-section1__cover-group">
-                    <article class="layout2 main-page-section1__content-box">
-                        <h2 class="layout main-page-section1__medium-title">
-                            Оцениваем тебя как профессионала
-                        </h2>
-                        <h4 class="layout main-page-section1__highlights11">
-                            Анализируем твои навыки, предпочтения, опыт работы
-                        </h4>
-                    </article>
+        <h1 class="layout1 title_1"> Как мы можем помочь? </h1>
+        <div class="layout our_help_flex">
+            {% for o in how_to_help_list %}
+                <div class="our_help_flex_item">
+                    <div class="layout main-page-section1__cover-group">
+                        <article class="layout2 our_help_content_box">
+                            <h2 class="layout title_2">
+                                Оцениваем тебя как профессионала
+                            </h2>
+                            <h4 class="layout normal_text">
+                                Анализируем твои навыки, предпочтения, опыт
+                                работы
+                            </h4>
+                        </article>
+                    </div>
                 </div>
-            </div>
-            <div class="main-page-section1__flex2-spacer"></div>
-            <div class="main-page-section1__flex2-item">
-                <article class="layout2 main-page-section1__content-box">
-                    <h2 class="layout main-page-section1__medium-title">
-                        Определяем карьерную цель доя тебя
-                    </h2>
-                    <h4 class="layout main-page-section1__highlights12">
-                        Выбираем компанию, должность, сферу и направление
-                        работы
-                    </h4>
-                </article>
-            </div>
-            <div class="main-page-section1__flex2-spacer"></div>
-            <div class="main-page-section1__flex2-item">
-                <article class="layout2 main-page-section1__content-box">
-                    <h2 class="layout main-page-section1__medium-title">
-                        Рассказываем как построить карьеру мечты
-                    </h2>
-                    <h4 class="layout main-page-section1__highlights13">
-                        Даем рекомендации по мероприятиям, курсам и вакансиям
-                    </h4>
-                </article>
-            </div>
+                <div class="main-page-section1__flex2-spacer"></div>
+            {% endfor %}
         </div>
     </section>
     <comment content="======= End section1 =======" break="true"></comment
@@ -127,10 +108,10 @@
                             </div>
                         </div>
                         <div class="main-page-section2__flex4-item1">
-                            <div
-                                    style="--src:url({% static '/assets/people.png' %})"
-                                    class="layout main-page-section2__image2"
-                            ></div>
+                            <div style="--src:url({% static '/assets/people.png' %})"
+                                 class="layout main-page-section2__image2">
+
+                            </div>
                         </div>
                     </div>
                     <h1 class="layout main-page-section2__hero-title1">

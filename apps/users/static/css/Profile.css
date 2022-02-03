@@ -111,16 +111,16 @@
 .profile-section1__icon1 {
   background: var(--src) center center/contain no-repeat; }
 
-.profile-section2__container.layout {
+.profile_container.layout {
   position: relative;
   height: -webkit-min-content;
   height: -moz-min-content;
   height: min-content; }
 
-.profile-section2__container {
+.profile_container {
   display: flex; }
 
-.profile-section2__flex1.layout {
+.profile_flex.layout {
   position: relative;
   height: -webkit-min-content;
   height: -moz-min-content;
@@ -128,42 +128,42 @@
   width: 88.89%;
   margin: 84px auto; }
 
-.profile-section2__flex1 {
+.profile_flex {
   display: flex;
   flex-direction: column; }
 
-.profile-section2__hero-title.layout {
+.profile_title.layout {
   position: relative;
   height: -webkit-min-content;
   height: -moz-min-content;
   height: min-content; }
 
-.profile-section2__hero-title {
+.profile_title {
   font: 700 48px/1.2 "Stratos LC Web", Helvetica, Arial, serif;
   color: #232323;
   letter-spacing: -1.92px; }
 
-.profile-section2__flex2.layout {
+.profile_subflex.layout {
   position: relative;
   height: -webkit-min-content;
   height: -moz-min-content;
   height: min-content;
   margin: 42px 0px 15px; }
 
-.profile-section2__flex2 {
+.profile_subflex {
   display: flex; }
 
-.profile-section2__flex2-item {
+.profile_avatar_layout {
   display: flex;
   position: relative;
   flex: 0 1 100px; }
 
-.profile-section2__block1.layout {
+.profile_avatar_image.layout {
   position: relative;
   height: 100px;
   flex-grow: 1; }
 
-.profile-section2__block1 {
+.profile_avatar_image {
   display: flex;
   background: var(--src) center center/contain no-repeat;
   box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.121569); }
@@ -177,15 +177,15 @@
 .profile-section2__icon {
   background: var(--src) center center/contain no-repeat; }
 
-.profile-section2__flex2-spacer {
+.profile_spacer {
   flex: 0 1 25px; }
 
-.profile-section2__flex2-item1 {
+.profile_name_flex {
   display: flex;
   position: relative;
   flex: 0 1 130px; }
 
-.profile-section2__flex3.layout {
+.profile_name_subflex.layout {
   position: relative;
   height: -webkit-min-content;
   height: -moz-min-content;
@@ -193,29 +193,29 @@
   flex-grow: 1;
   margin: 13px 0px 23px; }
 
-.profile-section2__flex3 {
+.profile_name_subflex {
   display: flex;
   flex-direction: column; }
 
-.profile-section2__medium-title.layout {
+.profile_name_text.layout {
   position: relative;
   height: -webkit-min-content;
   height: -moz-min-content;
   height: min-content; }
 
-.profile-section2__medium-title {
+.profile_name_text {
   font: 500 24px/1.2 "Stratos LC Web", Helvetica, Arial, serif;
   color: #232323;
   letter-spacing: -1.2px; }
 
-.profile-section2__highlights.layout {
+.profile_exit.layout {
   position: relative;
   height: -webkit-min-content;
   height: -moz-min-content;
   height: min-content;
   margin: 13px 0px 0px; }
 
-.profile-section2__highlights {
+.profile_exit {
   font: 18px/1.2 "Stratos LC Web", Helvetica, Arial, serif;
   color: #232323;
   text-decoration: underline;
