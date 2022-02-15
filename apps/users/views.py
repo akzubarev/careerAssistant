@@ -1,8 +1,7 @@
 from django.template.response import TemplateResponse
 
+from apps.recommendations.views import test_context
+
 
 def main(request):
-    return TemplateResponse(request, 'users/Profile.html',
-                            {"events_list": range(3),
-                             "courses_list": range(3),
-                             "vaccancies_list": range(3)})
+    return TemplateResponse(request, 'users/Profile.html', test_context)

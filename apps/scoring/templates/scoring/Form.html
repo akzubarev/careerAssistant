@@ -3,82 +3,100 @@
 {% block extrahead %}
     <link rel="stylesheet" type="text/css"
           href="{% static '/css/Form.css' %}"/>
+    <link rel="stylesheet" type="text/css"
+          href="{% static '/css/Base.css' %}"/>
 {% endblock %}
 
 
 {% block content %}
     <div class="form layout form-group">
-        <div class="layout form-block">
-            <div class="form-block-item">
-                <div class="layout form-flex">
-                    <div class="layout form-content-box3">
-                        <h2 class="layout title2-to-left">
-                            В какой компании вы хотите работать?
-                        </h2>
-                        <div class="layout form_choice_background">
-                            <h4 class="layout form-highlights">Введите название
-                                здесь</h4>
+        <form>
+            <div class="layout form-block">
+                <div class="flex_column">
+                    <div class="layout question_group_1">
+                        <div class="layout input_box">
+                            <label class="layout choice-title">
+                                В какой компании вы хотите работать?
+                                <input type="text" class="layout input_text"
+                                       placeholder="Введите название здесь"/>
+                            </label>
+                        </div>
+
+                        <div class="outer_spacer"></div>
+                        <div class="layout input_box">
+                            <label class="layout choice-title">
+                                Какая сфера вам интересна?
+                                <input type="text" class="layout input_text"
+                                       placeholder="Введите сферу здесь"/>
+                            </label>
                         </div>
                     </div>
-                    <div class="layout1 form-content-box3">
-                        <h2 class="layout1 title2-to-left">
-                            Какая сфера вам интересна?
-                        </h2>
-                        <div class="layout1 form_choice_background">
-                            <h4 class="layout form-highlights">Введите сферу
-                                здесь</h4>
-                        </div>
+                </div>
+                <div class="flex_column">
+                    <div class="layout choice_box">
+                        <h4 class="layout choice-title">
+                            В каком направлении вы хотите развиваться?
+                        </h4>
+                        <div class="inner_spacer"></div>
+                        <input type="radio" id="first1"
+                               name="question1" value="Design">
+                        <label for="first1"
+                               class="layout2 input_choice">Дизайн
+                        </label>
+                        <input type="radio" id="first2"
+                               name="question1" value="Development">
+                        <label for="first2"
+                               class="layout2 input_choice">Разработка
+                        </label>
+                        <input type="radio" id="first3"
+                               name="question1" value="analytics">
+                        <label for="first3"
+                               class="layout2 input_choice">Аналитика
+                        </label>
+                        <input type="radio" id="first4"
+                               name="question1" value="management">
+                        <label for="first4"
+                               class="layout2 input_choice">Менеджмент
+                        </label>
+                        <div class="inner_spacer"></div>
                     </div>
-                    <div class="layout form-cover-block">
-                        <h4 class="layout button_text"
-                            onclick="stub()"> Получить рекомендации</h4>
+                </div>
+                <div class="flex_column">
+                    <div class="layout choice_box">
+                        <h4 class="layout choice-title">
+                            До какой позиции вы хотите дорасти?
+                        </h4>
+                        <div class="inner_spacer"></div>
+                        <input type="radio" id="second1"
+                               name="question2" value="team_lead">
+                        <label for="second1"
+                               class="layout2 input_choice">Лид своей команды
+                        </label>
+                        <input type="radio" id="second2"
+                               name="question2" value="senior">
+                        <label for="second2"
+                               class="layout2 input_choice">Senior специалист
+                        </label>
+                        <input type="radio" id="second3"
+                               name="question2" value="director">
+                        <label for="second3"
+                               class="layout2 input_choice">Директор
+                        </label>
+                        <div class="inner_spacer"></div>
                     </div>
                 </div>
             </div>
-            <div class="form-block-item1">
-                <div class="layout form-content-box2">
-                    <h2 class="layout title2-to-left">
-                        В каком направоении вы хотите развиваться?
-                    </h2>
-                    <div class="layout2 form_choice_background">
-                        <h4 class="layout form_choice_text">Дизайн</h4>
-                    </div>
-                    <div class="layout3 form_choice_background">
-                        <h4 class="layout form_choice_text">Разработка</h4>
-                    </div>
-                    <div class="layout4 form_choice_background">
-                        <h4 class="layout form_choice_text">Аналитика</h4>
-                    </div>
-                    <div class="layout5 form_choice_background">
-                        <h4 class="layout form_choice_text">Менеджмент</h4>
-                    </div>
-                </div>
-            </div>
-            <div class="form-block-item2">
-                <div class="layout form-content-box1">
-                    <h2 class="layout title2-to-left">
-                        До какой позиции вы хотите дорасти?
-                    </h2>
-                    <div class="layout6 form_choice_background">
-                        <h4 class="layout form_choice_text">Лид своей
-                            команды</h4>
-                    </div>
-                    <div class="layout7 form_choice_background">
-                        <h4 class="layout form_choice_text">Senior
-                            специаоист</h4>
-                    </div>
-                    <div class="layout8 form_choice_background">
-                        <h4 class="layout form_choice_text">Директор</h4>
-                    </div>
-                </div>
-            </div>
-        </div>
+        </form>
+    </div>
+
+    <button class="layout button" onclick="stub()"> Получить рекомендации
+    </button>
 
 {% endblock %}
 {% block extrajs %}
     <script type="text/javascript">
         function stub() {
-            location.href = '/recomend/stub'
+            location.href = '/recommend/stub'
         }
     </script>
 {% endblock %}

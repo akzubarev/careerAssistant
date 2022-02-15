@@ -2,33 +2,27 @@
 {% load static %}
 
 {% block extrahead %}
-    <link rel="stylesheet" type="text/css" href="{% static '/css/Registration.css' %}"/>
+    <link rel="stylesheet" type="text/css"
+          href="{% static '/css/MainPage.css' %}"/>
 {% endblock %}
 
 {% block content %}
-    <div class="registration layout registration-block">
-        <div class="layout registration-flex">
-            <div class="registration-flex-item">
-                <div class="layout registration-flex1">
-                    <h1 class="layout registration-hero-title">
-                        Помогаем достичь профессиональных целей
-                    </h1>
-                    <div class="layout registration-cover-block1">
-                        <h4 class="layout registration-highlights1"
-                            onclick="form()">
-                            Войти через Google
-                        </h4>
-                    </div>
+    <div class="layout main_group">
+        <div class="layout main_flex">
+            <div class="layout main_flex_item">
+                <h1 class="layout title_1">
+                    Помогаем достичь профессиональных целей
+                </h1>
+                <div class="outer_spacer"></div>
+                <div class="layout1 button" onclick="form()">
+                    Войти через Google
                 </div>
             </div>
-            <div class="registration-flex-spacer"></div>
-            <div class="registration-flex-item1">
-                <div class="layout registration-cover-block">
-                    <div
-                            style="--src:url({% static 'assets/high_five.png' %})"
-                            class="layout registration-image1"
-                    ></div>
-                </div>
+        </div>
+        <div class="main_flex_spacer"></div>
+        <div class="layout main_image_subflex">
+            <div style="--src:url({% static '/assets/high-five.png' %})"
+                 class="layout main_image">
             </div>
         </div>
     </div>

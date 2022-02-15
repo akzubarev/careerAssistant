@@ -2,39 +2,36 @@
 {% load static %}
 {% block extrahead %}
     <link rel="stylesheet" type="text/css"
-          href="{% static '/css/../../static/css/Stub.css' %}"/>
+          href="{% static '/css/Stub.css' %}"/>
 {% endblock %}
 
 {% block content %}
-    <div class="stub layout stub-block">
+    <div class="stub layout main_group">
         <div class="layout stub-flex">
             <div class="stub-flex-item">
                 <div class="layout stub-group">
-                    <h1 class="layout stub-hero-title">
+                    <h1 class="layout title_1">
                         Анализируем ваши данные. Нам нужно всего 1-2 мин
                     </h1>
-                    <h2 class="layout stub-medium-title">
-                        Не закрывайте и не перезагружайте страницу, <br>
+                    <h2 class="layout main_subtitle">
+                        Не закрывайте и не перезагружайте страницу,
                         чтобы не потерять результаты!
                     </h2>
                 </div>
             </div>
             <div class="stub-flex-spacer"></div>
             <div class="stub-flex-item1">
-                <div class="layout stub-cover-group">
-                    <div
-                            style="--src:url({% static '/assets/../../static/assets/tick_people.png' %})"
-                            class="layout stub-image"
-                    ></div>
+                <div style="--src:url({% static '/assets/tick_people.png' %})"
+                     class="layout stub-image">
                 </div>
             </div>
         </div>
     </div>
 {% endblock %}
 {% block extrajs %}
-    <script type="text/javascript">
-        window.setTimeout(function () {
-            window.location.href = "/recomend";
-        }, 3000);
-    </script>
+        <script type="text/javascript">
+            window.setTimeout(function () {
+                window.location.href = "/recommend";
+            }, 3000);
+        </script>
 {% endblock %}

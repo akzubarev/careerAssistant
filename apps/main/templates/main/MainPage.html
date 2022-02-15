@@ -2,124 +2,129 @@
 {% load static %}
 
 {% block extrahead %}
-
+    <link rel="stylesheet" type="text/css"
+          href="{% static 'css/MainPage.css' %}"/>
 {% endblock %}
 {% block content %}
-    <div class="layout main_group">
-        <h1 class="layout title_1">
-            Достигай своих<br>карьерных целей
-        </h1>
-        <div class="layout main_flex">
-            <div class="main_flex_item">
-                <div class="layout main_text_subflex">
+    <section>
+        <div class="layout main_group">
+            <div class="layout main_flex">
+                <div class="layout main_flex_item">
+                    <h1 class="layout title_1">
+                        Достигай своих карьерных целей
+                    </h1>
+                    <div class="outer_spacer"></div>
                     <h4 class="layout main_subtitle">
-                        Поможем понять кем ты хочешь стать когда вырастешь
-                        и расскажем, что нужно для этого сделать
+                        Расскажи о себе и мы поможем понять кем ты хочешь стать
+                        когда вырастешь и расскажем, что нужно для этого
+                        сделать
                     </h4>
-                    <div class="layout button">
-                        <h4 class="layout button_text"
-                            onclick="register()">
-                            Попробовать
-                        </h4>
-                    </div>
                 </div>
             </div>
             <div class="main_flex_spacer"></div>
-            <div class="main_image_subflex">
+            <div class="layout main_image_subflex">
                 <div style="--src:url({% static '/assets/pitching.png' %})"
                      class="layout main_image">
                 </div>
             </div>
         </div>
-    </div>
-    <h1 class="layout1 title_1">
-        Выбери подходящий вариант
-    </h1>
-    <div class="layout career_goal_flex">
-        <div class="career_goal_flex_item">
-            <div class="layout career_goal_choice"
-                 onclick="register()">
-                <div style="--src:url({% static '/assets/talking.png' %})"
-                     class="layout career_goal_image">
-
+    </section>
+    <!-- ======= End section1 ======= -->
+    <section>
+        <div class="layout career_goal_flex">
+            <div class="career_goal_flex_item" onclick="register()">
+                <div class="layout career_goal_choice"
+                     onclick="register()">
+                    <div style="--src:url({% static '/assets/talking.png' %})"
+                         class="layout career_goal_image">
+                    </div>
+                    <div class="layout career_goal_info">
+                        <h2 class="layout title_2">
+                            Помогите найти карьерную цель и достичь её
+                        </h2>
+                        <h4 class="layout normal_text">
+                            Изучим твои опыт, навыки и тебя самого и
+                            подскажем, какую карьеру выбрать. Ах да, еще
+                            расскажем как ее построить
+                        </h4>
+                    </div>
                 </div>
-                <h2 class="layout title_2">
-                    Помогите найти карьерную цель и достичь её
-                </h2>
-                <h4 class="layout normal_text">
-                    Изучим твои опыт, навыки и тебя самого и подскажем,
-                    какую карьеру выбрать. Ах да, еще расскажем как ее
-                    построить
-                </h4>
+                <div class="layout replacement_choice"
+                     onclick="register()">
+                    <h2 class="layout1 replace_text">
+                        Заполнить анкету
+                    </h2>
+                    <div style="--src:url({% static '/assets/man_waving.png' %})"
+                         class="layout career_goal_image">
+                    </div>
+                </div>
+            </div>
+            <div class="outer_spacer_vertical"></div>
+            <div class="career_goal_flex_item" onclick="register()">
+                <div class="layout career_goal_choice"
+                     onclick="register()">
+                    <div style="--src:url({% static '/assets/choosing.png' %})"
+                         class="layout career_goal_image">
+                    </div>
+                    <div class="layout career_goal_info">
+                        <h2 class="layout title_2">
+                            У меня есть цель, расскажите как ее достичь
+                        </h2>
+                        <h4 class="layout normal_text">
+                            Проанализируем твою цель и составим для тебя
+                            список куда ходить, что изучать и где работать
+                        </h4>
+                    </div>
+                </div>
+                <div class="layout replacement_choice"
+                     onclick="register()">
+                    <h2 class="layout1 replace_text">
+                        Заполнить анкету
+                    </h2>
+                    <div style="--src:url({% static '/assets/woman_waving.png' %})"
+                         class="layout career_goal_image">
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="career_goal_flex_spacer"></div>
-        <div class="career_goal_flex_item">
-            <div class="layout career_goal_choice"
-                 onclick="register()">
-                <div style="--src:url({% static '/assets/chosing.png' %})"
-                     class="layout1 career_goal_image">
-                </div>
-                <h2 class="layout1 title_2">
-                    У меня есть цель, расскажите как ее достичь
-                </h2>
-                <h4 class="layout1 normal_text">
-                    Проанализируем твою цель и составим для тебя список
-                    куда ходить, что изучать и где работать
-                </h4>
-            </div>
-        </div>
-    </div>
+    </section>
     <!-- ======= End section2 ======= -->
     <section>
         <h1 class="layout1 title_1"> Как мы можем помочь? </h1>
         <div class="layout our_help_flex">
             {% for o in how_to_help_list %}
-                <div class="our_help_flex_item">
-                    <div class="layout main-page-section1__cover-group">
-                        <article class="layout2 our_help_content_box">
-                            <h2 class="layout title_2">
+                <div class="card">
+                    <div class="layout card_group">
+                        <div class="layout card_flex">
+                            <h2 class="layout card_title">
                                 Оцениваем тебя как профессионала
                             </h2>
-                            <h4 class="layout normal_text">
+                            <h4 class="layout card_text">
                                 Анализируем твои навыки, предпочтения, опыт
                                 работы
                             </h4>
-                        </article>
+                        </div>
                     </div>
                 </div>
                 <div class="main-page-section1__flex2-spacer"></div>
             {% endfor %}
         </div>
-    </section>
-    <comment content="======= End section1 =======" break="true"></comment
-    ><!-- ======= section2 ======= -->
-    <section class="layout main-page-section2__container">
-        <div class="layout main-page-section2__flex3">
-            <div class="layout main-page-section2__block2">
-                <div class="layout main-page-section2__group">
-                    <div class="layout main-page-section2__flex4">
-                        <div class="main-page-section2__flex4-item">
-                            <div class="layout main-page-section2__cover-block">
-                                <h4 class="layout main-page-section2__highlights"
-                                    onclick="register()">
-                                    Попробовать
-                                </h4>
-                            </div>
-                        </div>
-                        <div class="main-page-section2__flex4-item1">
-                            <div style="--src:url({% static '/assets/people.png' %})"
-                                 class="layout main-page-section2__image2">
 
-                            </div>
-                        </div>
-                    </div>
-                    <h1 class="layout main-page-section2__hero-title1">
-                        Начни путь к работе мечты прямо сейчас
-                    </h1>
+        <div class="layout bottom_line_container">
+            <div class="layout bottom_line_column">
+                <h1 class="layout title_1">
+                    Начни путь к работе мечты прямо сейчас
+                </h1>
+                <div class="layout1 button" onclick="register()">
+                    Попробовать
                 </div>
             </div>
+            <div style="--src:url({% static '/assets/people.png' %})"
+                 class="layout bottom_line_image">
+            </div>
         </div>
+
+
     </section>
 {% endblock %}
 

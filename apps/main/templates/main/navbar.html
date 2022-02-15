@@ -17,9 +17,9 @@
     <link rel="stylesheet" type="text/css"
           href="{% static '/css/fonts.css' %}"/>
     <link rel="stylesheet" type="text/css"
-          href="{% static 'css/MainPage.css' %}"/>
+          href="{% static 'css/navbar.css' %}"/>
     <link rel="stylesheet" type="text/css"
-          href="{% static 'css/RecommendationResult.css' %}"/>
+          href="{% static '/css/Base.css' %}"/>
     {% block extrahead %}
     {% endblock %}
 
@@ -32,32 +32,30 @@
 
 </head>
 
-<body style="display: flex">
-<main class="main-page layout main-page-main">
+<body style="display: flex; flex-grow: 1">
+<main class="main-page layout main_section">
     <div class="layout navbar_box">
-        <div class="navbar_box_item">
-            <div
-                    style="--src:url({% static '/assets/arrows.png' %})"
-                    class="layout navbar_arrows"
-            ></div>
+        <div class="navbar_box_item" onclick="home()">
+            <div style="--src:url({% static '/assets/arrows.png' %})"
+                 class="layout navbar_arrows">
+            </div>
+            <div class="navbar_spacer"></div>
+            <h4 class="layout navbar_title" onclick="home()">
+                Ассистент
+            </h4>
         </div>
-        <div class="navbar_spacer"></div>
-        <h4 class="layout navbar_title">
-            Ассистент
-        </h4>
+
         <div class="navbar_long_spacer"></div>
-        <div class="layout navbar_profile_name">
-            Агутин Леня
-        </div>
-        <div class="navbar_spacer_3"></div>
         <div class="navbar_avatar_box">
+            <h4 class="layout navbar_title">
+                Агутин Леня
+            </h4>
             <div onclick="profile()"
                  style="--src:url({% static 'assets/profile_pic.png' %})"
                  class="layout navbar_avatar">
             </div>
         </div>
     </div>
-
     {% block content %}
 
     {% endblock %}
@@ -66,6 +64,10 @@
 <script type="text/javascript">
     function profile() {
         location.href = '/profile'
+    }
+
+    function home() {
+        location.href = '/'
     }
 
     AOS.init();

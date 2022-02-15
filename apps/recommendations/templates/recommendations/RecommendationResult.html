@@ -5,96 +5,50 @@
 {% endblock %}
 {% block content %}
     <section class="layout results_section_container">
-        <div class="layout results_section_group">
-
-            <div class="layout results_goal_group">
-                <h2 class="layout results_goal_header">
+        <div class="layout results_goal_group">
+            <div class="layout results_text_group">
+                <h2 class="layout main_subtitle">
                     Твоя карьерная цель на 5 лет
                 </h2>
-                <h1 class="layout results_title">
+                <h1 class="layout title_1">
                     Senior бизнес-аналитик в Тинькофф
                 </h1>
-                <div class="layout results_goal_button">
-                    <h4 class="layout results_goal_button_text"
-                        onclick="form()"> Пройти тестирование заново
-                    </h4>
+                <div class="layout button"
+                     onclick="form()"> Пройти тестирование заново
                 </div>
-                <div style="--src:url({% static 'assets/stonks.png' %})"
-                     class="layout results_goal_image">
-                </div>
+            </div>
+            <div style="--src:url({% static 'assets/stonks.png' %})"
+                 class="layout results_goal_image">
             </div>
         </div>
     </section>
     <section class="layout recommendation_container">
         <div class="layout recommendation_flex">
-            <h1 class="layout recommendations_title">
+            <h1 class="layout title_1">
                 Рекомендации
             </h1>
-            <h1 class="layout recommendation_row_title">
-                Мероприятия
-            </h1>
-            <div class="layout recommendations_row">
-                {% for _ in events_list %}
-                    <div class="recommendation_card">
-                        <div class="layout recommendation_card_group">
-                            <div class="layout recommendation_card_flex">
-                                <h2 class="layout2 recommendation_card_title">
-                                    Как стать аналитиком данных и построить
-                                    карьеру в IT
-                                </h2>
-                                <h4 class="layout recommendation_card_text">
-                                    Узнайте, как освоить профессию и начать
-                                    работать в перспективной сфере, на вебинаре
-                                </h4>
+            {% for key, values in model_res.items %}
+                <h1 class="layout recommendation_row_title">
+                    {{ key }}
+                </h1>
+                <div class="layout recommendations_row">
+                    {% for title, description in values.items %}
+                        <div class="recommendation_card">
+                            <div class="layout recommendation_card_group">
+                                <div class="layout recommendation_card_flex">
+                                    <h2 class="layout2 recommendation_card_title">
+                                        {{ title }}
+                                    </h2>
+                                    <h4 class="layout recommendation_card_text">
+                                        {{ description }}
+                                    </h4>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="recommendation_row_spacer"></div>
-                {% endfor %}
-            </div>
-            <h1 class="layout1 recommendation_row_title">
-                Обучение
-            </h1>
-            <div class="layout recommendations_row">
-                {% for _ in events_list %}
-                    <div class="recommendation_card">
-                        <div class="layout recommendation_card_group">
-                            <div class="layout recommendation_card_flex">
-                                <h2 class="layout2 recommendation_card_title">
-                                    KPMG Advisory School
-                                </h2>
-                                <h4 class="layout recommendation_card_text">
-                                    Ты сможешь погрузиться в искусство бизнеса
-                                    на KPMG Advisory School.
-                                </h4>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="recommendation_row_spacer"></div>
-                {% endfor %}
-            </div>
-            <h1 class="layout2 recommendation_row_title">
-                Вакансии
-            </h1>
-            <div class="layout recommendations_row">
-                {% for _ in events_list %}
-                    <div class="recommendation_card">
-                        <div class="layout recommendation_card_group">
-                            <div class="layout recommendation_card_flex">
-                                <h2 class="layout2 recommendation_card_title">
-                                    Бизнес-аналитик
-                                </h2>
-                                <h4 class="layout recommendation_card_text">
-                                    Станьте специалистом, который влияет на
-                                    работу целых корпораций, всего за шесть
-                                    месяцев
-                                </h4>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="recommendation_row_spacer"></div>
-                {% endfor %}
-            </div>
+                        <div class="recommendation_row_spacer"></div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
         </div>
     </section>
 {% endblock %}

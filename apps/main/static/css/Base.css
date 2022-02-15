@@ -1,0 +1,153 @@
+
+.button.layout {
+    position: relative;
+    height: min-content;
+    width: max-content;
+    border: none;
+    /*margin: 50px 0 0 80px;*/
+}
+
+.button {
+    font: 18px/1.2 "Stratos LC Web", Helvetica, Arial, serif;
+    display: flex;
+    background-color: #67c8e1;
+    border-radius: 20px 20px 20px 20px;
+    color: white;
+    letter-spacing: -0.9px;
+    padding: 10px 10px 10px 10px;
+}
+
+.button:hover {
+    background-color: #328ab4;
+    color: white;
+}
+
+.inner_spacer {
+    flex: 0 1 10px;
+}
+
+.outer_spacer {
+    flex: 0 1 25px;
+}
+
+.inner_spacer_vertical {
+    flex: 0 1 10px;
+}
+
+.outer_spacer_vertical {
+    flex: 0 1 100px;
+}
+
+
+.card.layout {
+    position: relative;
+    height: min-content;
+    flex-grow: 1;
+}
+
+.card {
+    display: flex;
+    background-color: white;
+    box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.0627451);
+    border-radius: 20px 20px 20px 20px;
+}
+
+.card_flex.layout {
+    position: relative;
+    height: min-content;
+    flex-grow: 1;
+    margin: 40px 18px;
+}
+
+.card_group.layout {
+    position: relative;
+    height: min-content;
+    flex-grow: 1;
+}
+
+.card_group {
+    display: flex;
+    background-color: white;
+    box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.0627451);
+    border-radius: 20px 20px 20px 20px;
+}
+
+.card_flex {
+    display: flex;
+    flex-direction: column;
+}
+
+.card_title.layout {
+    position: relative;
+    height: min-content;
+}
+
+.card_title {
+    font: 700 24px/1.2 "Stratos LC Web", Helvetica, Arial, serif;
+    color: #232323;
+    letter-spacing: -1.2px;
+}
+
+.card_text.layout {
+    position: relative;
+    height: min-content;
+    margin: 32px 22px 15px 12px;
+}
+
+.card_text {
+    font: 18px/1.2 "Stratos LC Web", Helvetica, Arial, serif;
+    color: black;
+    letter-spacing: -0.9px;
+}
+
+
+.title_1.layout {
+    position: relative;
+    height: min-content;
+    width: max-content;
+    max-width: 600px;
+}
+
+.title_1 {
+    font: 800 55px/1.2 "Stratos LC Web", Helvetica, Arial, serif;
+    color: #232323;
+    letter-spacing: -1.92px;
+}
+
+
+.main_subtitle.layout {
+    position: relative;
+    height: min-content;
+}
+
+.main_subtitle {
+    font: 500 24px/1.2 "Stratos LC Web", Helvetica, Arial, serif;
+    color: #232323;
+    letter-spacing: -1.2px;
+    margin: 30px 0 0 0;
+}
+
+.main_section.layout {
+    position: relative;
+    overflow: hidden;
+    flex-grow: 1;
+}
+
+.main_section {
+    display: flex;
+    flex-direction: column;
+    background-color: #f9fbfc;
+}
+
+.main_group.layout {
+    position: relative;
+    height: min-content;
+    width: 89.17%;
+    margin: 134px auto 0;
+}
+
+.main_group {
+    display: flex;
+    height: min-content;
+    width: max-content;
+}
