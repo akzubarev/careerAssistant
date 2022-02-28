@@ -1,6 +1,6 @@
 from django.db.models import Model
 from apps.recommendations.models import Article
-from tableparsing.parsers.BaseParser import Parser
+from tables.handlers.Base import Parser, Exporter
 
 
 class ArticleParser(Parser):
@@ -20,3 +20,17 @@ class ArticleParser(Parser):
         if name == "tags":
             value = [value]
         return value
+
+
+class ArticleExporter(Exporter):
+    filename = 'articles'
+    modelClass: Model = Article
+    fieldsets = {
+        "name": "Название",
+        "profile": "Отрасль",
+        "description": "Описание для анонса",
+        "tags": "Теги",
+        "link": "Внешняя ссылка",
+        # "relatedArticles": "",
+        "rubric": "Рубрики",
+    }

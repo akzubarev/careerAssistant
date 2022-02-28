@@ -1,6 +1,6 @@
 from django.db.models import Model
 from apps.recommendations.models import Course
-from tableparsing.parsers.BaseParser import Parser
+from tables.handlers.Base import Parser, Exporter
 
 
 class CourseParser(Parser):
@@ -19,3 +19,16 @@ class CourseParser(Parser):
         if name == "tags":
             value = [value]
         return value
+
+
+class CourseExporter(Exporter):
+    filename = 'courses'
+    modelClass: Model = Course
+    fieldsets = {
+        "name": "Название",
+        "profile": "Отрасль",
+        "description": "Описание для анонса",
+        "tags": "Теги",
+        "link": "Внешняя ссылка",
+        "type": "Тип",
+    }

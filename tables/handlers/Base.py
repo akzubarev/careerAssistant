@@ -5,6 +5,7 @@ from typing import Type
 
 import pandas as pd
 from django.db.models import Model
+from pandas import DataFrame
 
 from apps.users.models import Company
 
@@ -24,11 +25,10 @@ class Parser(ABC):
                     val = None
                 val = self.handle_field(name=key, value=val)
                 setattr(model, key, val)
-            # try:
-            #
-            # except Exception as e:
-            #     print(e)
-            model.save()
+            try:
+                model.save()
+            except Exception as e:
+                print(e)
 
     @abc.abstractmethod
     def handle_field(self, name: str, value):
@@ -41,3 +41,33 @@ class Parser(ABC):
             name = value[0:idx]
             company = Company.objects.filter(name=name).first()
         return company
+
+
+class Exporter:
+    filename: str
+    modelClass: Model
+    fieldsets: dict
+
+    def export(self, format):
+        rows = list()
+        for item in self.modelClass.objects.all():
+            row = {
+                data_key: self.handle_field(name=key, value=getattr(item, key))
+                for key, data_key in
+                self.fieldsets.items()
+            }
+            rows.append(row)
+
+        df = pd.DataFrame(rows)
+        if format == "pandas":
+            return df
+        elif format == "xlsx":
+            name = f"output/{self.filename}.xlsx"
+            df.to_excel(name)
+            return name
+        else:
+            raise ValueError()
+
+    @abc.abstractmethod
+    def handle_field(self, name: str, value):
+        return value

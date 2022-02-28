@@ -31,9 +31,9 @@ class User(AbstractUser):
 
 class Company(models.Model):
     name = models.CharField(max_length=100)
-    profile = models.CharField(max_length=100)
-    description = models.CharField(max_length=100)
-    tags = ArrayField(base_field=models.CharField(max_length=20))
+    profile = models.CharField(max_length=100, null=True)
+    description = models.CharField(max_length=100, null=True)
+    tags = ArrayField(base_field=models.CharField(max_length=20), null=True)
 
     class Meta:
         verbose_name = 'company'
