@@ -7,11 +7,11 @@ from apps.users.models import Company, User
 
 
 class Recommendation(models.Model):
-    name = models.CharField(max_length=100)
-    profile = models.CharField(max_length=100)
-    description = models.CharField(max_length=100)
-    tags = ArrayField(base_field=models.CharField(max_length=20))
-    link = models.CharField(max_length=100)
+    name = models.CharField(max_length=500, null=True)
+    profile = models.CharField(max_length=500, null=True)
+    description = models.CharField(max_length=1000, null=True)
+    tags = ArrayField(base_field=models.CharField(max_length=20), null=True)
+    link = models.CharField(max_length=500, null=True)
 
     class Meta:
         abstract = True
@@ -21,10 +21,10 @@ class Recommendation(models.Model):
 
 
 class Event(Recommendation):
-    type = models.CharField(max_length=100)
-    date = models.DateTimeField()
-    company = models.ForeignKey(to=Company, on_delete=CASCADE)
-    city = models.CharField(max_length=100)
+    type = models.CharField(max_length=500, null=True)
+    date = models.DateTimeField(null=True)
+    company = models.ForeignKey(to=Company, on_delete=CASCADE, null=True)
+    city = models.CharField(max_length=500, null=True)
 
     class Meta:
         verbose_name = 'event'
@@ -33,7 +33,7 @@ class Event(Recommendation):
 
 class Article(Recommendation):
     relatedArticles = models.ManyToManyField(to="self")
-    rubric = models.CharField(max_length=100)
+    rubric = models.CharField(max_length=100, null=True)
 
     class Meta:
         verbose_name = 'article'
@@ -41,7 +41,7 @@ class Article(Recommendation):
 
 
 class Course(Recommendation):
-    type = models.CharField(max_length=100)
+    type = models.CharField(max_length=100, null=True)
 
     class Meta:
         verbose_name = 'course'
@@ -49,13 +49,13 @@ class Course(Recommendation):
 
 
 class Vacancy(Recommendation):
-    company = models.ForeignKey(to=Company, on_delete=CASCADE)
-    profession = models.CharField(max_length=100)
-    branch = models.CharField(max_length=100)
-    experience = models.IntegerField(help_text="Количество месяцев")
-    type = models.CharField(max_length=100)
-    shift = models.CharField(max_length=100)
-    city = models.CharField(max_length=100)
+    company = models.ForeignKey(to=Company, on_delete=CASCADE, null=True)
+    profession = models.CharField(max_length=500, null=True)
+    branch = models.CharField(max_length=100, null=True)
+    experience = models.IntegerField(help_text="Количество месяцев", null=True)
+    type = models.CharField(max_length=100, null=True)
+    shift = models.CharField(max_length=100, null=True)
+    city = models.CharField(max_length=100, null=True)
 
     class Meta:
         verbose_name = 'vacancy'
@@ -63,7 +63,7 @@ class Vacancy(Recommendation):
 
 
 class RecommendationResult(models.Model):
-    scoringResult = models.ForeignKey(to=ScoringResult, on_delete=CASCADE)
+    scoringResult = models.ForeignKey(to=ScoringResult, on_delete=CASCADE, null=True)
     events = models.ManyToManyField(to=Event)
     articles = models.ManyToManyField(to=Article)
     courses = models.ManyToManyField(to=Course)

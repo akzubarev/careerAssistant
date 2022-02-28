@@ -10,7 +10,9 @@
 
 {% block content %}
     <div class="form layout form-group">
-        <form>
+        <form action="{% url "recommendations:processing" %}" method="post"
+              class="form-creation">>
+            {% csrf_token %}
             <div class="layout form-block">
                 <div class="flex_column">
                     <div class="layout question_group_1">
@@ -18,6 +20,7 @@
                             <label class="layout choice-title">
                                 В какой компании вы хотите работать?
                                 <input type="text" class="layout input_text"
+                                       name="company" required
                                        placeholder="Введите название здесь"/>
                             </label>
                         </div>
@@ -27,6 +30,7 @@
                             <label class="layout choice-title">
                                 Какая сфера вам интересна?
                                 <input type="text" class="layout input_text"
+                                       name="sphere" required
                                        placeholder="Введите сферу здесь"/>
                             </label>
                         </div>
@@ -38,23 +42,23 @@
                             В каком направлении вы хотите развиваться?
                         </h4>
                         <div class="inner_spacer"></div>
-                        <input type="radio" id="first1"
-                               name="question1" value="Design">
+                        <input type="radio" id="first1" required
+                               name="direction" value="design">
                         <label for="first1"
                                class="layout2 input_choice">Дизайн
                         </label>
                         <input type="radio" id="first2"
-                               name="question1" value="Development">
+                               name="direction" value="development">
                         <label for="first2"
                                class="layout2 input_choice">Разработка
                         </label>
                         <input type="radio" id="first3"
-                               name="question1" value="analytics">
+                               name="direction" value="analytics">
                         <label for="first3"
                                class="layout2 input_choice">Аналитика
                         </label>
                         <input type="radio" id="first4"
-                               name="question1" value="management">
+                               name="direction" value="management">
                         <label for="first4"
                                class="layout2 input_choice">Менеджмент
                         </label>
@@ -67,18 +71,18 @@
                             До какой позиции вы хотите дорасти?
                         </h4>
                         <div class="inner_spacer"></div>
-                        <input type="radio" id="second1"
-                               name="question2" value="team_lead">
+                        <input type="radio" id="second1" required
+                               name="level" value="team_lead">
                         <label for="second1"
                                class="layout2 input_choice">Лид своей команды
                         </label>
                         <input type="radio" id="second2"
-                               name="question2" value="senior">
+                               name="level" value="senior">
                         <label for="second2"
                                class="layout2 input_choice">Senior специалист
                         </label>
                         <input type="radio" id="second3"
-                               name="question2" value="director">
+                               name="level" value="director">
                         <label for="second3"
                                class="layout2 input_choice">Директор
                         </label>
@@ -86,17 +90,10 @@
                     </div>
                 </div>
             </div>
+            <button class="layout button" onclick="stub()">
+                Получить рекомендации
+            </button>
         </form>
     </div>
-
-    <button class="layout button" onclick="stub()"> Получить рекомендации
-    </button>
-
 {% endblock %}
-{% block extrajs %}
-    <script type="text/javascript">
-        function stub() {
-            location.href = '/recommend/stub'
-        }
-    </script>
-{% endblock %}
+

@@ -8,6 +8,8 @@ django = "*"
 django-jazzmin = "*"
 psycopg2 = "*"
 python-dotenv = "*"
+pandas = "*"
+openpyxl = "*"
 
 [dev-packages]
 

@@ -9,13 +9,13 @@ class EventAdmin(admin.ModelAdmin):
     list_display = [
         'name',
         'profile',
-        'description',
         'tags',
-        'link',
         'type',
         'date',
         'company',
         'city',
+        'link',
+        'description',
     ]
     fieldsets = [
         ['Base', {
@@ -41,11 +41,11 @@ class ArticleAdmin(admin.ModelAdmin):
     list_display = [
         'name',
         'profile',
-        'description',
         'tags',
-        'link',
         # 'relatedArticles',
-        'rubric'
+        'rubric',
+        'link',
+        'description',
     ]
     fieldsets = [
         ['Base', {
@@ -100,7 +100,7 @@ class VacancyAdmin(admin.ModelAdmin):
         'description',
         'tags',
         'link',
-        'company',
+        'company_fmt',
         'profession',
         'branch',
         'experience',
@@ -128,3 +128,7 @@ class VacancyAdmin(admin.ModelAdmin):
                 'city',
             ]}]
     ]
+
+    @admin.display(description="Company")
+    def company_fmt(self, obj):
+        return obj.company.withLink()

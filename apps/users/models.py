@@ -1,6 +1,8 @@
 from django.contrib.auth.models import AbstractUser
 from django.contrib.postgres.fields import ArrayField
 from django.db import models
+from django.urls import reverse
+from django.utils.html import format_html
 
 
 class User(AbstractUser):
@@ -36,3 +38,12 @@ class Company(models.Model):
     class Meta:
         verbose_name = 'company'
         verbose_name_plural = 'companies'
+
+    def __str__(self):
+        return self.name
+
+    def withLink(self):
+        url = reverse(
+            f"admin:{self._meta.app_label}_{self._meta.model_name}_change",
+            args=[self.id])
+        return format_html(f'<a href={url}>{str(self)}</a>')

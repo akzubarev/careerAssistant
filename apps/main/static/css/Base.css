@@ -142,12 +142,12 @@
 .main_group.layout {
     position: relative;
     height: min-content;
-    width: 89.17%;
+    width: 90%;
     margin: 134px auto 0;
 }
 
 .main_group {
     display: flex;
-    height: min-content;
+    height: max-content;
     width: max-content;
 }
