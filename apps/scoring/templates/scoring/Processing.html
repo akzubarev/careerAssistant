@@ -29,9 +29,9 @@
     </div>
 {% endblock %}
 {% block extrajs %}
-        <script type="text/javascript">
-            window.setTimeout(function () {
-                window.location.href = "/recommend";
-            }, 3000);
-        </script>
+    <script type="text/javascript">
+        window.setTimeout(function () {
+            window.location.href = "{% url "scoring:scoring" %}";
+        }, 1000);
+    </script>
 {% endblock %}

@@ -32,9 +32,9 @@
     <!-- ======= End section1 ======= -->
     <section>
         <div class="layout career_goal_flex">
-            <div class="career_goal_flex_item" onclick="register()">
+            <div class="career_goal_flex_item" onclick="auth()">
                 <div class="layout career_goal_choice"
-                     onclick="register()">
+                     onclick="auth()">
                     <div style="--src:url({% static '/assets/talking.png' %})"
                          class="layout career_goal_image">
                     </div>
@@ -50,7 +50,7 @@
                     </div>
                 </div>
                 <div class="layout replacement_choice"
-                     onclick="register()">
+                     onclick="auth()">
                     <h2 class="layout1 replace_text">
                         Заполнить анкету
                     </h2>
@@ -60,9 +60,9 @@
                 </div>
             </div>
             <div class="outer_spacer_vertical"></div>
-            <div class="career_goal_flex_item" onclick="register()">
+            <div class="career_goal_flex_item" onclick="auth()">
                 <div class="layout career_goal_choice"
-                     onclick="register()">
+                     onclick="auth()">
                     <div style="--src:url({% static '/assets/choosing.png' %})"
                          class="layout career_goal_image">
                     </div>
@@ -77,7 +77,7 @@
                     </div>
                 </div>
                 <div class="layout replacement_choice"
-                     onclick="register()">
+                     onclick="auth()">
                     <h2 class="layout1 replace_text">
                         Заполнить анкету
                     </h2>
@@ -92,16 +92,15 @@
     <section>
         <h1 class="layout1 title_1"> Как мы можем помочь? </h1>
         <div class="layout our_help_flex">
-            {% for o in how_to_help_list %}
+            {% for title, description in how_to_help_list.items %}
                 <div class="card">
                     <div class="layout card_group">
                         <div class="layout card_flex">
                             <h2 class="layout card_title">
-                                Оцениваем тебя как профессионала
+                                {{ title }}
                             </h2>
                             <h4 class="layout card_text">
-                                Анализируем твои навыки, предпочтения, опыт
-                                работы
+                                {{ description }}
                             </h4>
                         </div>
                     </div>
@@ -115,7 +114,7 @@
                 <h1 class="layout title_1">
                     Начни путь к работе мечты прямо сейчас
                 </h1>
-                <div class="layout1 button" onclick="register()">
+                <div class="layout1 button" onclick="auth()">
                     Попробовать
                 </div>
             </div>
@@ -130,8 +129,8 @@
 
 {% block extrajs %}
     <script type="text/javascript">
-        function register() {
-            location.href = '/register'
+        function auth() {
+            location.href = '{% url "main:auth" %}'
         }
     </script>
 {% endblock %}

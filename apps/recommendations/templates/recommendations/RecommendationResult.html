@@ -55,7 +55,7 @@
 {% block extrajs %}
     <script type="text/javascript">
         function form() {
-            location.href = '/form'
+            location.href = '{% url "scoring:scoring" %}'
         }
     </script>
 {% endblock %}

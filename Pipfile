@@ -10,6 +10,9 @@ psycopg2 = "*"
 python-dotenv = "*"
 pandas = "*"
 openpyxl = "*"
+scikit-learn = "*"
+pymorphy2 = "*"
+nltk = "*"
 
 [dev-packages]
 

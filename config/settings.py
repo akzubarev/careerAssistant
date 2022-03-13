@@ -16,6 +16,7 @@ AUTH_USER_MODEL = 'users.User'
 
 INSTALLED_APPS = [
     'jazzmin',
+    'crispy_forms',
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -30,6 +31,7 @@ INSTALLED_APPS = [
     'apps.recommendations',
     'apps.scoring',
 ]
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -54,8 +56,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'config.context_processor.user',
-                'config.context_processor.recomendation',
+                'config.context_processor.user_context',
+                'config.context_processor.recomendation_context',
             ],
         },
     },

@@ -6,6 +6,7 @@ from apps.users.models import User, Company
 @admin.register(User)
 class UserAdmin(admin.ModelAdmin):
     list_display = [
+        'username',
         'email',
         'first_name',
         'last_name',

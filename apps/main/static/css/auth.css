@@ -1,3 +1,16 @@
+.main_group.layout {
+    position: relative;
+    height: max-content;
+    width: 90%;
+    margin: 20px auto 134px;
+}
+
+.main_group {
+    display: flex;
+    height: max-content;
+    width: max-content;
+}
+
 .stub-block.layout {
     position: relative;
     overflow: hidden;

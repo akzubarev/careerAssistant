@@ -1,8 +1,15 @@
-def user(request):
-    return {"username": "Агутин Леня"}
+def user_context(request):
+    user = request.user
+    username = user.username if not user.is_anonymous else "None"
+    return {"username": username}
 
 
-def recomendation(request):
+def recomendation_context(request):
+    user = request.user
+    if not user.is_anonymous:
+        scoring_res = user.scoring_results.first()
+        recommendation_res = scoring_res.recommendation.first()
+
     return {
         "goal": "Senior бизнес-аналитик в Тинькофф",
         "model_res": {

@@ -1,0 +1,39 @@
+{% extends 'main/navbar.html' %}
+{% load static %}
+
+{% block extrahead %}
+    <link rel="stylesheet" type="text/css"
+          href="{% static '/css/MainPage.css' %}"/>
+    <link rel="stylesheet" type="text/css"
+          href="{% static '/css/auth.css' %}"/>
+{% endblock %}
+
+{% block content %}
+    <div class="stub layout main_group">
+        <div class="layout stub-flex">
+            <div class="stub-flex-item">
+                <div class="layout stub-group">
+                    <h1 class="layout title_1">
+                        Помогаем достичь профессиональных целей
+                    </h1>
+                    <div class="layout1 button" onclick="form()">
+                        Войти или зарегистрироваться
+                    </div>
+                </div>
+            </div>
+            <div class="stub-flex-spacer"></div>
+            <div class="stub-flex-item1">
+                <div style="--src:url({% static '/assets/high-five.png' %})"
+                     class="layout stub-image">
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block extrajs %}
+    <script type="text/javascript">
+        function form() {
+            location.href = '{% url "main:login" %}'
+        }
+    </script>
+{% endblock %}

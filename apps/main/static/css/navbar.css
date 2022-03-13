@@ -1,5 +1,4 @@
 
-
 .navbar_box.layout {
     position: relative;
     height: min-content;
@@ -10,6 +9,12 @@
     display: flex;
     background-color: white;
     box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.0627451);
+}
+
+.button.layout0 {
+    position: relative;
+    height: min-content;
+    margin: auto 20px;
 }
 
 .navbar_box_item {
@@ -28,7 +33,6 @@
 .navbar_arrows {
     display: flex;
     background: var(--src) center center/contain no-repeat;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.101961);
 }
 
 .navbar_title.layout {
@@ -41,6 +45,19 @@
     font: 700 18px/1.2 "Stratos LC Web", Helvetica, Arial, serif;
     color: #232323;
     letter-spacing: -0.9px;
+}
+
+.navbar_title_underline.layout {
+    position: relative;
+    height: min-content;
+    margin: auto 0;
+}
+
+.navbar_title_underline {
+    font: 700 18px/1.2 "Stratos LC Web", Helvetica, Arial, serif;
+    color: #232323;
+    letter-spacing: -0.9px;
+    text-decoration: underline;
 }
 
 .navbar_long_spacer {
@@ -65,5 +82,4 @@
 .navbar_avatar {
     display: flex;
     background: var(--src) center center/contain no-repeat;
-    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.121569);
 }

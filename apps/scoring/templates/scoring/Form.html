@@ -10,7 +10,7 @@
 
 {% block content %}
     <div class="form layout form-group">
-        <form action="{% url "recommendations:processing" %}" method="post"
+        <form action="{% url "scoring:processing" %}" method="post"
               class="form-creation">>
             {% csrf_token %}
             <div class="layout form-block">

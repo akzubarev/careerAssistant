@@ -1,6 +1,4 @@
 
-
-
 .title_1.layout1 {
     position: relative;
     height: min-content;
@@ -72,6 +70,8 @@
 
 .our_help_flex {
     display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .main-page-section1__flex2-spacer {
@@ -137,7 +137,7 @@
 }
 
 .career_goal_flex_item:hover .career_goal_choice {
-   display: none
+    display: none
 }
 
 .career_goal_flex_item:hover .replacement_choice {
@@ -223,7 +223,7 @@
     font: 700 24px/1.2 "Stratos LC Web", Helvetica, Arial, serif;
     color: #232323;
     letter-spacing: -1.2px;
-    margin: 30px 0 0 0;
+    margin: 30px 10px 0 0;
 }
 
 .normal_text.layout {
@@ -248,7 +248,7 @@
 
 
 .button.layout1 {
-    margin: 20px 50px 0 0;
+    margin: 20px 50px 20px 0;
     padding: 10px 30px 10px 30px;
     font: 24px/1.2 "Stratos LC Web", Helvetica, Arial, serif;
     width: max-content;
