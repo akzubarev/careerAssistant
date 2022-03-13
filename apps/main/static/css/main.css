@@ -237,9 +237,6 @@
     font: 18px/1.2 "Stratos LC Web", Helvetica, Arial, serif;
     color: #232323;
     letter-spacing: -0.9px;
-}
-
-.normal_text {
     position: relative;
     height: min-content;
     width: 75.6%;

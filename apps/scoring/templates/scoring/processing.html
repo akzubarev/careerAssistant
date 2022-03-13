@@ -1,11 +1,8 @@
 {% extends 'main/navbar.html' %}
 {% load static %}
-
 {% block extrahead %}
     <link rel="stylesheet" type="text/css"
-          href="{% static '/css/MainPage.css' %}"/>
-    <link rel="stylesheet" type="text/css"
-          href="{% static '/css/auth.css' %}"/>
+          href="{% static '/css/processing.css' %}"/>
 {% endblock %}
 
 {% block content %}
@@ -14,16 +11,17 @@
             <div class="stub-flex-item">
                 <div class="layout stub-group">
                     <h1 class="layout title_1">
-                        Помогаем достичь профессиональных целей
+                        Анализируем ваши данные. Нам нужно всего 1-2 мин
                     </h1>
-                    <div class="layout1 button" onclick="form()">
-                        Войти или зарегистрироваться
-                    </div>
+                    <h2 class="layout main_subtitle">
+                        Не закрывайте и не перезагружайте страницу,
+                        чтобы не потерять результаты!
+                    </h2>
                 </div>
             </div>
             <div class="stub-flex-spacer"></div>
             <div class="stub-flex-item1">
-                <div style="--src:url({% static '/assets/high-five.png' %})"
+                <div style="--src:url({% static '/assets/tick_people.png' %})"
                      class="layout stub-image">
                 </div>
             </div>
@@ -32,8 +30,8 @@
 {% endblock %}
 {% block extrajs %}
     <script type="text/javascript">
-        function form() {
-            location.href = '{% url "main:login" %}'
-        }
+        window.setTimeout(function () {
+            window.location.href = "{% url "scoring:scoring" %}";
+        }, 1000);
     </script>
 {% endblock %}

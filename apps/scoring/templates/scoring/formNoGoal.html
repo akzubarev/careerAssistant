@@ -1,0 +1,264 @@
+{% extends 'main/navbar.html' %}
+{% load static %}
+{% block extrahead %}
+    <link rel="stylesheet" type="text/css"
+          href="{% static '/css/form.css' %}"/>
+    <link rel="stylesheet" type="text/css"
+          href="{% static '/css/base.css' %}"/>
+{% endblock %}
+
+
+{% block content %}
+    <div class="form layout form-group">
+        <form action="{% url "scoring:processing" %}" method="post"
+              class="form-creation" style="width: max-content">
+            {% csrf_token %}
+            <div class="layout form-block">
+                <div class="layout1 flex_column">
+                    <div id="firstBlock" class="layout question_group_1">
+                        <div class="layout input_box">
+                            <label class="layout choice-title">
+                                Опишите последнее место работы:
+                            </label>
+                            <div class="outer_spacer"></div>
+                            <label class="layout choice-title">
+                                Какая у вас была должность?
+                                <input type="text" class="layout input_text"
+                                       name="profile_1"
+                                       placeholder="Системный аналитик "/>
+                            </label>
+                            <div class="inner_spacer"></div>
+                            <label class="layout choice-title">
+                                Сколько месяцев вы проработали?
+                                <input type="text" class="layout input_text"
+                                       name="experience_1"
+                                       placeholder="14"/>
+                            </label>
+                            <div class="inner_spacer"></div>
+                            <label class="layout choice-title">
+                                Опишите ваши обязанности и достижения
+                                <textarea type="text-mul"
+                                          placeholder="Рост конверсии в покупку в 2 раза с 1,2% до 2,4% благодаря анализу трафика по разным каналам"
+                                          class="layout input_textarea"
+                                          name="duties_1"></textarea>
+                            </label>
+                        </div>
+                        <div class="layout buttons_flex">
+                            <button type="button" class="layout button"
+                                    onclick="next1()">
+                                Дальше
+                            </button>
+                            <button type="button" class="layout button"
+                                    onclick="skip()">
+                                Я еще не работал
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="secondBlock" class="layout question_group_1"
+                         style="display: none">
+                        <div class="layout input_box">
+                            <label class="layout choice-title">
+                                Опишите последнее место работы:
+                            </label>
+                            <div class="outer_spacer"></div>
+                            <label class="layout choice-title">
+                                Какая у вас была должность?
+                                <input type="text" class="layout input_text"
+                                       name="profile_2"
+                                       placeholder="Системный аналитик "/>
+                            </label>
+                            <div class="inner_spacer"></div>
+                            <label class="layout choice-title">
+                                Сколько месяцев вы проработали?
+                                <input type="text" class="layout input_text"
+                                       name="experience_2"
+                                       placeholder="14"/>
+                            </label>
+                            <div class="inner_spacer"></div>
+                            <label class="layout choice-title">
+                                Опишите ваши обязанности и достижения
+                                <textarea type="text-mul"
+                                          placeholder="Рост конверсии в покупку в 2 раза с 1,2% до 2,4% благодаря анализу трафика по разным каналам"
+                                          class="layout input_textarea"
+                                          name="duties_2"></textarea>
+                            </label>
+                        </div>
+                        <div class="layout buttons_flex">
+                            <button type="button" class="layout button"
+                                    onclick="next2()">
+                                Дальше
+                            </button>
+                            <button type="button" class="layout button"
+                                    onclick="skip()">
+                                Я работал только в одном месте
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="thirdBlock" class="layout question_group_1"
+                         style="display: none">
+                        <div class="layout input_box">
+                            <label class="layout choice-title">
+                                Опишите последнее место работы:
+                            </label>
+                            <div class="outer_spacer"></div>
+                            <label class="layout choice-title">
+                                Какая у вас была должность?
+                                <input type="text" class="layout input_text"
+                                       name="profile_3"
+                                       placeholder="Системный аналитик "/>
+                            </label>
+                            <div class="inner_spacer"></div>
+                            <label class="layout choice-title">
+                                Сколько месяцев вы проработали?
+                                <input type="text" class="layout input_text"
+                                       name="experience_3" placeholder="14"/>
+                            </label>
+                            <div class="inner_spacer"></div>
+                            <label class="layout choice-title">
+                                Опишите ваши обязанности и достижения
+                                <textarea type="text-mul"
+                                          placeholder="Рост конверсии в покупку в 2 раза с 1,2% до 2,4% благодаря анализу трафика по разным каналам"
+                                          class="layout input_textarea"
+                                          name="duties_3"></textarea>
+                            </label>
+                        </div>
+                        <div class="layout buttons_flex">
+                            <button type="button" class="layout button"
+                                    onclick="next3()">
+                                Дальше
+                            </button>
+                            <button type="button" class="layout button"
+                                    onclick="skip()">
+                                Я работал только в двух местах
+                            </button>
+                        </div>
+                    </div>
+                    <div id="fourthBlock" class="layout question_group_1"
+                         style="display: none">
+                        <div class="layout input_box">
+                            <div class="outer_spacer"></div>
+                            <label class="layout choice-title">
+                                Напишите список ваших ключевых навыков через ;
+                                <textarea type="text" class="layout input_text"
+                                          name="skills"
+                                          placeholder="Анализ рынка; Продвинутый пользователь ПК; SQL; Глубинные интервью"></textarea>
+                            </label>
+                        </div>
+                        <button type="button" class="layout button"
+                                onclick="next4()"> Дальше
+                        </button>
+                    </div>
+                    <div id="fifthBlock" class="layout question_group_1"
+                         style="display: none">
+                        <div class="layout input_box">
+                            <div class="outer_spacer"></div>
+                            <label class="layout choice-title">
+                                В какой области вы хотите развиваться и
+                                работать?
+                                <input type="text" class="layout input_text"
+                                       name="field"
+                                       placeholder="Юриспруденция"/>
+                            </label>
+                        </div>
+                        <button type="button" class="layout button"
+                                onclick="next5()"> Дальше
+                        </button>
+                    </div>
+                    <div id="sixthBlock" class="layout question_group_1"
+                         style="display: none">
+                        <div class="layout input_box">
+                            <div class="outer_spacer"></div>
+                            <label class="layout choice-title">
+                                Вы участвовали в соревнованиях? Напишите их
+                                через ; в формате название - достижение
+                                <input type="text" class="layout input_text"
+                                       name="competitions"
+                                       placeholder="Русский медвежонок - 58 место; Кенгуру - участие"/>
+                            </label>
+                        </div>
+                        <button class="layout button">
+                            Получить рекомендации
+                        </button>
+                    </div>
+
+                </div>
+                <div class="outer_spacer_vertical"></div>
+                <div class="layout2 flex_column">
+                    <div class="layout filled_layout"
+                         onclick="auth_goal()">
+                        <div class="layout filled_text">
+                            <h2 id="percent" class="layout filled_percent">
+                                0%
+                            </h2>
+                            <h4 class="layout normal_text">
+                                анкеты заполнено
+                            </h4>
+                        </div>
+                        <div style="--src:url({% static '/assets/Drinking.png' %})"
+                             class="layout image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </form>
+    </div>
+{% endblock %}
+
+{% block extrajs %}
+    <script type="text/javascript">
+        function next1() {
+            var firstBlock = document.getElementById("firstBlock");
+            var secondBlock = document.getElementById("secondBlock");
+            firstBlock.style.display = "none";
+            secondBlock.style.display = "block";
+            document.getElementById("percent").innerHTML = "20%";
+        }
+
+        function next2() {
+            var secondBlock = document.getElementById("secondBlock");
+            var thirdBlock = document.getElementById("thirdBlock");
+            secondBlock.style.display = "none";
+            thirdBlock.style.display = "block";
+            document.getElementById("percent").innerHTML = "40%";
+        }
+
+        function next3() {
+            var thirdBlock = document.getElementById("thirdBlock");
+            var fourthBlock = document.getElementById("fourthBlock");
+            thirdBlock.style.display = "none";
+            fourthBlock.style.display = "block";
+            document.getElementById("percent").innerHTML = "70%";
+        }
+
+        function skip() {
+            var firstBlock = document.getElementById("firstBlock");
+            var secondBlock = document.getElementById("secondBlock");
+            var thirdBlock = document.getElementById("thirdBlock");
+            firstBlock.style.display = "none";
+            secondBlock.style.display = "none";
+            thirdBlock.style.display = "none";
+            document.getElementById("percent").innerHTML = "60%";
+        }
+
+        function next4() {
+            var fourthBlock = document.getElementById("fourthBlock");
+            var fifthBlock = document.getElementById("fifthBlock");
+            fourthBlock.style.display = "none";
+            fifthBlock.style.display = "block";
+            document.getElementById("percent").innerHTML = "80%";
+        }
+
+        function next5() {
+            var fifthBlock = document.getElementById("fifthBlock");
+            var sixthBlock = document.getElementById("sixthBlock");
+            fifthBlock.style.display = "none";
+            sixthBlock.style.display = "block";
+            document.getElementById("percent").innerHTML = "90%";
+        }
+
+    </script>
+{% endblock %}

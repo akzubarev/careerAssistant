@@ -8,12 +8,12 @@ class EventAdmin(admin.ModelAdmin):
     list_display = [
         'name',
         'profile',
-        'tags',
         'type',
         'date',
         'company',
         'city',
-        'link',
+        # 'link',
+        'tags',
         'description',
     ]
     fieldsets = [
@@ -70,10 +70,10 @@ class CourseAdmin(admin.ModelAdmin):
     list_display = [
         'name',
         'profile',
-        'description',
+        'type',
         'tags',
+        'description',
         'link',
-        'type'
     ]
     fieldsets = [
         ['Base', {
@@ -96,16 +96,16 @@ class VacancyAdmin(admin.ModelAdmin):
     list_display = [
         'name',
         'profile',
-        'description',
-        'tags',
-        'link',
         'company_fmt',
         'profession',
-        'branch',
-        'experience',
-        'type',
-        'shift',
         'city',
+        'experience',
+        'shift',
+        # 'link',
+        'branch',
+        'type',
+        'tags',
+        'description',
     ]
     fieldsets = [
         ['Base', {
@@ -128,6 +128,6 @@ class VacancyAdmin(admin.ModelAdmin):
             ]}]
     ]
 
-    @admin.display(description="Company")
+    @admin.display(description="Company", ordering="company")
     def company_fmt(self, obj):
         return obj.company.withLink()

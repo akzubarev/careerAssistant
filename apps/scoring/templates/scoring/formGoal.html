@@ -1,0 +1,57 @@
+{% extends 'main/navbar.html' %}
+{% load static %}
+{% block extrahead %}
+    <link rel="stylesheet" type="text/css"
+          href="{% static '/css/form.css' %}"/>
+    <link rel="stylesheet" type="text/css"
+          href="{% static '/css/base.css' %}"/>
+{% endblock %}
+
+
+{% block content %}
+    <div class="form layout form-group">
+        <form action="{% url "scoring:processing" %}" method="post"
+              class="form-creation">
+            {% csrf_token %}
+            <div class="layout form-block">
+                <div class="flex_column">
+                    <div class="layout question_group_1">
+                        <div class="layout input_box">
+                            <label class="layout choice-title">
+                                В какой компании вы хотите работать?
+                                <input type="text" class="layout input_text"
+                                       name="company" required
+                                       placeholder="Введите название здесь"/>
+                            </label>
+                        </div>
+                        <div class="outer_spacer"></div>
+                        <div class="layout input_box">
+                            <label class="layout choice-title">
+                                Какая сфера вам интересна?
+                                <input type="text" class="layout input_text"
+                                       name="sphere" required
+                                       placeholder="Введите сферу здесь"/>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex_column">
+                    <div class="layout question_group_1">
+                        <div class="layout input_box">
+                            <label class="layout choice-title">
+                                Кем вы хотите работать?
+                                <input type="text" class="layout input_text"
+                                       name="sphere" required
+                                       placeholder="Введите должность здесь"/>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="layout button">
+                Получить рекомендации
+            </button>
+        </form>
+    </div>
+{% endblock %}
+

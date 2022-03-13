@@ -6,9 +6,10 @@ from django.utils.html import format_html
 
 from apps.recommendations.models import Event
 from apps.users.models import Company, User
+from config.mixins import AutoCreatedUpdatedMixin
 
 
-class FormResult(models.Model):
+class FormResult(AutoCreatedUpdatedMixin):
     user = models.ForeignKey(to=User, on_delete=SET_NULL,
                              related_name="form_results",
                              null=True, blank=False)
@@ -18,7 +19,7 @@ class FormResult(models.Model):
 
     skills = models.TextField(null=True, blank=True)
 
-    competitions = models.ManyToManyField(to=Event, related_name="FormResults")
+    competitions = models.TextField(null=True, blank=True)
 
     additional = ArrayField(base_field=models.CharField(max_length=300),
                             null=True, blank=True)
@@ -39,7 +40,7 @@ class FormResult(models.Model):
         verbose_name_plural = 'form results'
 
 
-class ScoringResult(models.Model):
+class ScoringResult(AutoCreatedUpdatedMixin):
     user = models.ForeignKey(to=User, on_delete=SET_NULL,
                              related_name="scoring_results",
                              null=True, blank=False)

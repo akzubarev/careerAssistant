@@ -11,6 +11,8 @@ class RecommendationResultAdmin(admin.ModelAdmin):
         # 'articles',
         # 'courses',
         # 'vacancies',
+        'updated_at',
+        'created_at'
     ]
 
     fieldsets = [
@@ -21,7 +23,14 @@ class RecommendationResultAdmin(admin.ModelAdmin):
                 'articles',
                 'courses',
                 'vacancies',
-            ]}],
+            ]
+        }],
+        ['Time', {
+            'fields': [
+                'updated_at',
+                'created_at'
+            ]
+        }],
     ]
 
     @admin.display(description="Events")

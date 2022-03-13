@@ -8,7 +8,8 @@ def recomendation_context(request):
     user = request.user
     if not user.is_anonymous:
         scoring_res = user.scoring_results.first()
-        recommendation_res = scoring_res.recommendation.first()
+        if scoring_res is not None:
+            recommendation_res = scoring_res.recommendation.first()
 
     return {
         "goal": "Senior бизнес-аналитик в Тинькофф",

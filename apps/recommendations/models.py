@@ -4,9 +4,10 @@ from django.db.models import CASCADE
 from apps.main.models import Event, Article, Course, Vacancy
 from apps.scoring.models import ScoringResult
 from apps.users.models import Company, User
+from config.mixins import AutoCreatedUpdatedMixin
 
 
-class RecommendationResult(models.Model):
+class RecommendationResult(AutoCreatedUpdatedMixin):
     scoringResult = models.ForeignKey(to=ScoringResult,
                                       related_name="recommendation",
                                       on_delete=CASCADE, null=True)

@@ -23,7 +23,7 @@
     <link rel="stylesheet" type="text/css"
           href="{% static 'css/navbar.css' %}"/>
     <link rel="stylesheet" type="text/css"
-          href="{% static '/css/Base.css' %}"/>
+          href="{% static '/css/base.css' %}"/>
     {% block extrahead %}
     {% endblock %}
 
@@ -60,10 +60,10 @@
                 </div>
             </div>
         {% else %}
-            <h4 class="layout navbar_title_underline">
+            <h4 class="layout navbar_title_underline" onclick="login()">
                 Вход
             </h4>
-            <div class="layout0 button" onclick="auth()">
+            <div class="layout0 button" onclick="register()">
                 Регистрация
             </div>
         {% endif %}
@@ -80,6 +80,14 @@
 
     function home() {
         location.href = '/'
+    }
+
+    function login() {
+        location.href = '{% url "users:login" goal="-" %}'
+    }
+
+    function register() {
+        location.href = '{% url "users:register" goal="-" %}'
     }
 
     AOS.init();

@@ -3,7 +3,7 @@
 
 {% block extrahead %}
     <link rel="stylesheet" type="text/css"
-          href="{% static 'css/MainPage.css' %}"/>
+          href="{% static 'css/main.css' %}"/>
 {% endblock %}
 {% block content %}
     <section>
@@ -32,9 +32,9 @@
     <!-- ======= End section1 ======= -->
     <section>
         <div class="layout career_goal_flex">
-            <div class="career_goal_flex_item" onclick="auth()">
+            <div class="career_goal_flex_item">
                 <div class="layout career_goal_choice"
-                     onclick="auth()">
+                     onclick="auth_no_goal()">
                     <div style="--src:url({% static '/assets/talking.png' %})"
                          class="layout career_goal_image">
                     </div>
@@ -50,7 +50,7 @@
                     </div>
                 </div>
                 <div class="layout replacement_choice"
-                     onclick="auth()">
+                     onclick="auth_no_goal()">
                     <h2 class="layout1 replace_text">
                         Заполнить анкету
                     </h2>
@@ -60,9 +60,9 @@
                 </div>
             </div>
             <div class="outer_spacer_vertical"></div>
-            <div class="career_goal_flex_item" onclick="auth()">
+            <div class="career_goal_flex_item">
                 <div class="layout career_goal_choice"
-                     onclick="auth()">
+                     onclick="auth_goal()">
                     <div style="--src:url({% static '/assets/choosing.png' %})"
                          class="layout career_goal_image">
                     </div>
@@ -77,7 +77,7 @@
                     </div>
                 </div>
                 <div class="layout replacement_choice"
-                     onclick="auth()">
+                     onclick="auth_goal()">
                     <h2 class="layout1 replace_text">
                         Заполнить анкету
                     </h2>
@@ -114,7 +114,7 @@
                 <h1 class="layout title_1">
                     Начни путь к работе мечты прямо сейчас
                 </h1>
-                <div class="layout1 button" onclick="auth()">
+                <div class="layout1 button" onclick="auth_no_goal()">
                     Попробовать
                 </div>
             </div>
@@ -129,8 +129,12 @@
 
 {% block extrajs %}
     <script type="text/javascript">
-        function auth() {
-            location.href = '{% url "main:auth" %}'
+        function auth_goal() {
+            location.href = '{% url "users:auth" goal="goal" %}'
+        }
+
+        function auth_no_goal() {
+            location.href = '{% url "users:auth" goal="no_goal" %}'
         }
     </script>
 {% endblock %}
