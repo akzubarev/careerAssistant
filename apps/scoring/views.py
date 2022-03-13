@@ -17,23 +17,30 @@ def processing(request):
         data = {key: value for key, value in request.POST.items() if
                 key != "csrfmiddlewaretoken"}
         # print(data)
-        jobs = list()
-        for i in range(3):
-            if f"profile_{i}" in data.keys():
-                job = {
-                    'position': data.get(f"profile_{i}"),
-                    'exp': data.get(f"experience_{i}"),
-                    'achievements': data.get(f"duties_{i}")
-                }
-                jobs.append(job)
+        if "company" in data:
+            data.get("company")
+            data.get("profile")
+            data.get("sphere")
 
-        FormResult.objects.create(
-            user=request.user, jobs=jobs, skills=data.get("skills"),
-            additional=[], career_area=data.get("field"),
-            competitions=data.get("competitions")
-        )
+            return TemplateResponse(request, 'scoring/processing.html', {})
+        else:
+            jobs = list()
+            for i in range(3):
+                if f"profile_{i}" in data.keys():
+                    job = {
+                        'position': data.get(f"profile_{i}"),
+                        'exp': data.get(f"experience_{i}"),
+                        'achievements': data.get(f"duties_{i}")
+                    }
+                    jobs.append(job)
 
-    return TemplateResponse(request, 'scoring/processing.html', {})
+            FormResult.objects.create(
+                user=request.user, jobs=jobs, skills=data.get("skills"),
+                additional=[], career_area=data.get("field"),
+                competitions=data.get("competitions")
+            )
+
+        return TemplateResponse(request, 'scoring/processing.html', {})
 
 
 def score(form_res: FormResult):

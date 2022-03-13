@@ -10,7 +10,6 @@ import numpy as np
 import pandas as pd
 import os
 
-nltk.download('stopwords')
 
 class CareerScoring():
     def __init__(self, path_to_data):
@@ -44,7 +43,7 @@ class CareerScoring():
         text: str
             Text to clean
         translate: bool, default=True
-            Translate or not to russian, if translation fails on the side of 
+            Translate or not to russian, if translation fails on the side of
             LingueeTranslator, translation is not applied
 
         Returns
@@ -110,7 +109,7 @@ class CareerScoring():
                         additional_education,
                         career_area,
                         n_goals=3):
-        '''Based on working experience, skills, competitions, education 
+        '''Based on working experience, skills, competitions, education
         and area of career (if provided) gives a career goal: offer from given dataset
 
         Parameters
@@ -118,8 +117,8 @@ class CareerScoring():
         jobs: list of dict
             Job experience
             Keys
-                'position', 
-                'exp' - working experience, 
+                'position',
+                'exp' - working experience,
                 'achievements' - obligations and achievements, would be nice if they are separated with ;
         skills: str or list
             Skills in one string, separated with ',', ';' or '.'
@@ -207,9 +206,11 @@ class CareerScoring():
 
         max_10 = list(zip([-1.0] * 10, [-1] * 10))
         for index, offer in offers_to_check.iterrows():
-            new_sim = get_cosine_similarity(skills, offer['skills'].split(';'))
-            max_10.append((new_sim, index))
-            max_10 = sorted(max_10)[1:]
+            if offer['skills'] != None and type(offer['skills']) == str:
+                new_sim = get_cosine_similarity(skills,
+                                                offer['skills'].split(';'))
+                max_10.append((new_sim, index))
+                max_10 = sorted(max_10)[1:]
 
         max_10 = list(reversed(list(filter(lambda x: x[1] != -1, max_10))))
 
