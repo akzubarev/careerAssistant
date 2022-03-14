@@ -24,15 +24,12 @@ class CareerScoring():
         self.translator = LingueeTranslator(source='en', target='ru')
 
         # load models and datasets
-        self.classification_ds = pd.read_csv(
-            os.path.join(path_to_data, 'classification_ds.csv'))
-        self.combined_offers_ds = pd.read_csv(
-            os.path.join(path_to_data, 'combined_offers_ds.csv'))
-        with open(os.path.join(path_to_data, 'classification_model.dat'),
-                  'rb') as f:
+        self.classification_ds = pd.read_csv(os.path.join(path_to_data, 'classification_ds.csv'))
+        self.combined_offers_ds = pd.read_csv(os.path.join(path_to_data, 'combined_offers_ds.csv'))
+        with open(os.path.join(path_to_data, 'classification_model.dat'), 'rb') as f:
             self.classification_model = pickle.load(f)
-        self.spec_codification = pd.read_csv(
-            os.path.join(path_to_data, 'spec_codification.csv'))
+        self.spec_codification = pd.read_csv(os.path.join(path_to_data, 'spec_codification.csv'))
+
 
     def clean_text(self, text, translate=True):
         '''Text cleaning function: remove stop-words, translation if needed,
@@ -43,7 +40,7 @@ class CareerScoring():
         text: str
             Text to clean
         translate: bool, default=True
-            Translate or not to russian, if translation fails on the side of
+            Translate or not to russian, if translation fails on the side of 
             LingueeTranslator, translation is not applied
 
         Returns
@@ -51,7 +48,6 @@ class CareerScoring():
         text: str
             cleaned text
         '''
-
         def is_russian(text):
             if text is None or len(text) == 0:
                 return True
@@ -66,8 +62,7 @@ class CareerScoring():
             return not all_eng
 
         def is_intern(pos):
-            to_check = ['ассистент', 'стажёр', 'стажировка', 'стажер',
-                        'помощник', 'intern']
+            to_check = ['ассистент', 'стажёр', 'стажировка', 'стажер', 'помощник', 'intern']
             for check in to_check:
                 if check in pos:
                     return 1, ' '.join(pos.replace(check, '').split())
@@ -91,9 +86,8 @@ class CareerScoring():
 
         tokens = re.split(' |-', text)
         tokens = [token for token in tokens if token != '']
-
-        tokens = [token for token in tokens if
-                  token not in self.stopwords_russian]
+        
+        tokens = [token for token in tokens if token not in self.stopwords_russian]
 
         # lemmatize
         tokens = [self.morph.parse(token)[0].normal_form for token in tokens]
@@ -102,14 +96,15 @@ class CareerScoring():
 
         return ' '.join(tokens)
 
-    def get_career_goal(self,
-                        jobs,
-                        skills,
-                        competitions,
-                        additional_education,
-                        career_area,
-                        n_goals=3):
-        '''Based on working experience, skills, competitions, education
+
+    def get_career_goal(self, 
+        jobs, 
+        skills, 
+        competitions, 
+        additional_education, 
+        career_area,
+        n_goals=3):
+        '''Based on working experience, skills, competitions, education 
         and area of career (if provided) gives a career goal: offer from given dataset
 
         Parameters
@@ -117,8 +112,8 @@ class CareerScoring():
         jobs: list of dict
             Job experience
             Keys
-                'position',
-                'exp' - working experience,
+                'position', 
+                'exp' - working experience, 
                 'achievements' - obligations and achievements, would be nice if they are separated with ;
         skills: str or list
             Skills in one string, separated with ',', ';' or '.'
@@ -149,14 +144,12 @@ class CareerScoring():
 
             distances = range(len(s1) + 1)
             for i2, c2 in enumerate(s2):
-                distances_ = [i2 + 1]
+                distances_ = [i2+1]
                 for i1, c1 in enumerate(s1):
                     if c1 == c2:
                         distances_.append(distances[i1])
                     else:
-                        distances_.append(1 + min((distances[i1],
-                                                   distances[i1 + 1],
-                                                   distances_[-1])))
+                        distances_.append(1 + min((distances[i1], distances[i1 + 1], distances_[-1])))
                 distances = distances_
             return distances[-1]
 
@@ -171,22 +164,22 @@ class CareerScoring():
 
         if career_area == None or career_area == '':
             job_positions = [j.get('position').lower() for j in jobs]
-            specs = self.classification_model.predict(job_positions)
+            if len(job_positions) == 0:
+                specs = np.unique(self.spec_codification['code'].values)
+            else:
+                specs = self.classification_model.predict(job_positions)
         else:
             scores = {}
             for s in self.spec_codification['specialization'].values:
                 scores[s] = 1 - levenshteinDistance(s, career_area)
             specs = sorted(scores.items(), key=operator.itemgetter(1))[-3:]
-            specs = [self.spec_codification[
-                         self.spec_codification['specialization'] == s][
-                         'code'].values[0] for s, _ in specs]
-
+            specs = [self.spec_codification[self.spec_codification['specialization'] == s]['code'].values[0] for s, _ in specs]
+        
         if type(skills) == str:
             skills = re.split(r';|,|\.', skills)
         user_skills = list(filter(lambda s: s != None and s != '', skills))
         for competition in competitions:
-            user_skills.append(
-                competition['name'] + ' ' + competition['achievement'])
+            user_skills.append(competition['name'] + ' ' + competition['achievement'])
         for ed in additional_education:
             user_skills.append(ed)
         for job in jobs:
@@ -194,12 +187,9 @@ class CareerScoring():
 
         if len(user_skills) == 0:
             return [], 'Не удалось определить карьерную цель, вы указали мало данных о себе'
-
-        pos_to_check = self.classification_ds[
-            self.classification_ds['specialization'].isin(specs)][
-            'position'].values
-        offers_to_check = self.combined_offers_ds[
-            self.combined_offers_ds['position_lower'].isin(pos_to_check)]
+        
+        pos_to_check = self.classification_ds[self.classification_ds['specialization'].isin(specs)]['position'].values
+        offers_to_check = self.combined_offers_ds[self.combined_offers_ds['position_lower'].isin(pos_to_check)]
 
         for skill in user_skills:
             skill = self.clean_text(skill, translate=False)
@@ -207,14 +197,12 @@ class CareerScoring():
         max_10 = list(zip([-1.0] * 10, [-1] * 10))
         for index, offer in offers_to_check.iterrows():
             if offer['skills'] != None and type(offer['skills']) == str:
-                new_sim = get_cosine_similarity(skills,
-                                                offer['skills'].split(';'))
+                new_sim = get_cosine_similarity(skills, offer['skills'].split(';'))
                 max_10.append((new_sim, index))
                 max_10 = sorted(max_10)[1:]
 
         max_10 = list(reversed(list(filter(lambda x: x[1] != -1, max_10))))
 
-        career_goals = [self.combined_offers_ds.iloc[i]['position'] for _, i in
-                        max_10[:n_goals]]
+        career_goals = [self.combined_offers_ds.iloc[i]['position'] for _, i in max_10[:n_goals]]
 
         return career_goals, 'Карьерная цель успешно подобрана'

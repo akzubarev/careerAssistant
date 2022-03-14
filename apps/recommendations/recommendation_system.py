@@ -2,13 +2,28 @@ import pandas as pd
 import os
 import re
 from transformers import BertTokenizer, BertForTokenClassification
-import tensorflow
 from keras.preprocessing.sequence import pad_sequences
 from sklearn.metrics.pairwise import cosine_similarity
 
 
 BERT_PATH = 'sberbank-ai/ruBert-base'
 SPLIT_BY = r"[\w']+|[«»\",.?!;]"
+
+
+def levenshteinDistance(s1, s2):
+    if len(s1) > len(s2):
+        s1, s2 = s2, s1
+
+    distances = range(len(s1) + 1)
+    for i2, c2 in enumerate(s2):
+        distances_ = [i2+1]
+        for i1, c1 in enumerate(s1):
+            if c1 == c2:
+                distances_.append(distances[i1])
+            else:
+                distances_.append(1 + min((distances[i1], distances[i1 + 1], distances_[-1])))
+        distances = distances_
+    return distances[-1]
 
 
 class RecommendationSystem:
@@ -45,6 +60,7 @@ class RecommendationSystem:
 
     def recommend_vacancies(
         self,
+        n_scoring : int = 3,
         n_specializations : int = 2,
         n_vacances_on_specialization : int = 1,
         scoring_result : list = []
@@ -54,6 +70,8 @@ class RecommendationSystem:
 
         Parameters
         ----------
+        n_scoring: int
+            Number of examples to be cut.
         n_specializations: int
             The number of specializations for each of the scoring examples.
         n_vacances_on_specialization: int
@@ -68,7 +86,7 @@ class RecommendationSystem:
                 of the 'Название' and 'Компания'.
         '''
 
-        best_result_scoring = self._get_n_top_scoring(scoring_result = scoring_result)
+        best_result_scoring = self._get_n_top_scoring(n_scoring = n_scoring, scoring_result = scoring_result)
         vacances = []
 
         for prof in best_result_scoring:
@@ -93,6 +111,34 @@ class RecommendationSystem:
                         vacances.append({'Название' : frame_vacances.iloc[0, 0], 'Компания' : frame_vacances.iloc[0, 1].rpartition('[')[0]})
                 else:
                     vacances.append({'Название' : frame_vacances.iloc[0, 0], 'Компания' : frame_vacances.iloc[0, 1].rpartition('[')[0]})
+
+        if len(vacances) == 0:
+            distances = []
+            goal = best_result_scoring[0]
+
+            for index, row in self.spec_codification.iterrows():
+                error_local = levenshteinDistance(goal, row['specialization'])
+                distances.append((row['specialization'], error_local))
+            
+            distances = sorted(distances, key=lambda x: x[1], reverse=True)
+            taken_vacancies_m = 0
+
+            for distance in distances:
+                try:
+                    frame_vacances = self.jobs.loc[self.jobs['Профессия'] == distance[0]].sample(n = n_vacances_on_specialization)
+                except ValueError:
+                    continue
+
+                if frame_vacances.shape[0] > 1:
+                    for frame_vacancy in frame_vacances:
+                        vacances.append({'Название' : frame_vacances.iloc[0, 0], 'Компания' : frame_vacances.iloc[0, 1].rpartition('[')[0]})
+                else:
+                    vacances.append({'Название' : frame_vacances.iloc[0, 0], 'Компания' : frame_vacances.iloc[0, 1].rpartition('[')[0]})
+
+                taken_vacancies_m += frame_vacances.shape[0]
+                if taken_vacancies_m >= n_vacances_on_specialization:
+                    vacances = vacances[:n_vacances_on_specialization]
+                    break
 
         return vacances
 
@@ -147,18 +193,24 @@ class RecommendationSystem:
         tokenized_skills = self._to_tokenized(skills)
         self.new_job['text'] = self.new_job['text'].apply(lambda x: self._to_tokenized(x))
 
-        error = -1
-        # ID of nearest neighbour.
-        id = -1
+        distances = []
 
         for index, row in self.new_job.iterrows():
             error_local = cosine_similarity(tokenized_skills, row['text'])
-            if error_local > error:
-                error = error_local
-                id = row['User ID']
+            distances.append((row['User ID'], error_local))
 
-        articles = list(
-            self.favorites.loc[self.favorites['User ID'].isin([id])]['Название']
-        )[:max_n_articles]
+        distances = sorted(distances, key=lambda x: x[1], reverse=True)
+        taken_articles_m = 0
+
+        for distance in distances:
+            new_sources = list(
+                self.favorites.loc[self.favorites['User ID'].isin([distance[0]])]['Название'][self.favorites['Тип объекта'] == 'Статья']
+            )
+            articles.extend(new_sources)
+            taken_articles_m += len(new_sources)
+
+            if taken_articles_m >= max_n_articles:
+                taken_articles_m = articles[:max_n_articles]
+                break
 
         return articles
