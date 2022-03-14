@@ -44,7 +44,7 @@ class RecommendationResultAdmin(admin.ModelAdmin):
 
     @admin.display(description="Articles", ordering="articles")
     def articles_format(self, obj):
-        return ",".join(article.name for article in obj.articles.all())
+        return ",".join(article.name for article in list(obj.articles.all())[:6])
 
     @admin.display(description="Courses", ordering="courses")
     def courses_format(self, obj):

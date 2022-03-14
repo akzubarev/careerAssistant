@@ -26,28 +26,16 @@ def recomendation_context(request):
                         goal = f"{top_pick.name} в {top_pick.company.name}"
                     else:
                         goal = "Цель не была определена"
-                    # vacs = {
-                    #     "Как стать аналитиком данных и построить карьеру в IT": "Узнайте, как освоить профессию и начать работать в перспективной сфере, на вебинаре",
-                    #     "KPMG Advisory School": "Ты сможешь погрузиться в искусство бизнеса на KPMG Advisory School.",
-                    #     "Бизнес-аналитик": "Станьте специалистом, который влияет на работу целых корпораций, всего за шесть месяцев",
-                    # }
                     vacs = {vac.company.name: vac.name for vac in
-                            recommendation_res.vacancies.all()}
+                            list(recommendation_res.vacancies.all())[:6]}
 
-                    articles = {
-                        article.name: (
-                            article.description if article.description is not None else "")
-                        for article in recommendation_res.articles.all()}
+                    articles = dict()
+                    for article in recommendation_res.articles.all():
+                        if article.description is not None and len(
+                                articles.keys()) < 6:
+                            articles[article.name] = article.description
 
-                    model_res = {
-                        # "Мероприятия": {
-                        #     "Как стать аналитиком данных и построить карьеру в IT":
-                        #     "Узнайте, как освоить профессию и начать работать в перспективной сфере, на вебинаре",
-                        #     "KPMG Advisory School":
-                        #     "Ты сможешь погрузиться в искусство бизнеса на KPMG Advisory School.",
-                        #     "Бизнес-аналитик":
-                        #     "Станьте специалистом, который влияет на работу целых корпораций, всего за шесть месяцев",
-                        # },
+                    model_res = {  # "Мероприятия":
                         "Вакансии": vacs,
                         "Обучение": articles
                     }

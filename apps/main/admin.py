@@ -54,13 +54,6 @@ class ArticleAdmin(admin.ModelAdmin):
                 'description',
                 'tags',
                 'link',
-            ]}],
-        ['Data', {
-            'fields': [
-                'type',
-                'date',
-                'company',
-                'city',
             ]}]
     ]
 

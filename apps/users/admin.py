@@ -15,9 +15,11 @@ class UserAdmin(admin.ModelAdmin):
     fieldsets = [
         ['Data', {
             'fields': [
-                'user',
-                'key',
-                'value',
+                'username',
+                'email',
+                'first_name',
+                'last_name',
+                'is_staff',
             ]}]
     ]
 

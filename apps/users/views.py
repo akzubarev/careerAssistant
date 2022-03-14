@@ -20,8 +20,7 @@ def auth(request, goal):
     if request.user.is_anonymous is False:
         return redirect("scoring:form", goal=goal)
     else:
-        return TemplateResponse(request, 'users/auth.html',
-                                {"goal": goal})
+        return TemplateResponse(request, 'users/auth.html', {"goal": goal})
 
 
 def register_view(request, goal):
@@ -40,7 +39,7 @@ def register_view(request, goal):
     form = NewUserForm()
     return render(request=request,
                   template_name="users/register.html",
-                  context={"register_form": form})
+                  context={"register_form": form, "goal": goal})
 
 
 def login_view(request, goal):
@@ -65,4 +64,4 @@ def login_view(request, goal):
     form = AuthenticationForm()
     return render(request=request,
                   template_name="users/login.html",
-                  context={"login_form": form})
+                  context={"login_form": form, "goal": goal})

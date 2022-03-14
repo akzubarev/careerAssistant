@@ -19,7 +19,7 @@
             <button class="btn btn-primary" type="submit">Register</button>
         </form>
         <p class="text-center">If you already have an account, <a
-                href="/login">login</a> instead.</p>
+                href="{% url "users:login" goal=goal %}">login</a> instead.</p>
     </div>
 
 {% endblock %}

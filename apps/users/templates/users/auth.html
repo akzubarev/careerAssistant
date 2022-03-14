@@ -16,7 +16,7 @@
                     <h1 class="layout title_1">
                         Помогаем достичь профессиональных целей
                     </h1>
-                    <div class="layout1 button" onclick="form()">
+                    <div class="layout1 button" onclick="login()">
                         Войти или зарегистрироваться
                     </div>
                 </div>
@@ -32,7 +32,7 @@
 {% endblock %}
 {% block extrajs %}
     <script type="text/javascript">
-        function form() {
+        function login() {
             location.href = '{% url "users:login"  goal=goal %}'
         }
     </script>
