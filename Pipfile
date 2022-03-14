@@ -13,6 +13,9 @@ openpyxl = "*"
 scikit-learn = "*"
 pymorphy2 = "*"
 nltk = "*"
+transformers = "*"
+keras = "*"
+tensorflow = "*"
 
 [dev-packages]
 

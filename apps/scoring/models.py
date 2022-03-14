@@ -52,6 +52,15 @@ class ScoringResult(AutoCreatedUpdatedMixin):
     profiles = ArrayField(base_field=models.CharField(max_length=100),
                           null=False, blank=False)
 
+    def __str__(self):
+        return f"{self.id}: {self.formResult}"
+
+    def withLink(self):
+        url = reverse(
+            f"admin:{self._meta.app_label}_{self._meta.model_name}_change",
+            args=[self.id])
+        return format_html(f'<a href={url}>{str(self)}</a>')
+
     class Meta:
         verbose_name = 'scoring result'
         verbose_name_plural = 'scoring results'

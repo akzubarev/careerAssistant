@@ -18,16 +18,25 @@ def processing(request):
                 key != "csrfmiddlewaretoken"}
         # print(data)
         if "company" in data:
-            data.get("company")
-            data.get("profile")
-            data.get("sphere")
-
+            form_res = FormResult.objects.create(
+                user=request.user,
+                jobs=list(),
+                skills=data.get("skills"),
+                additional=[data.get("company")],
+                career_area=data.get("sphere"),
+                competitions=""
+            )
+            ScoringResult.objects.create(user=request.user,
+                                         formResult=form_res,
+                                         profiles=[data.get("profile")]
+                                         )
             return TemplateResponse(request, 'scoring/processing.html', {})
         else:
             jobs = list()
             for i in range(3):
                 if f"profile_{i}" in data.keys():
                     job = {
+                        'company': data.get(f"company_{i}"),
                         'position': data.get(f"profile_{i}"),
                         'exp': data.get(f"experience_{i}"),
                         'achievements': data.get(f"duties_{i}")
@@ -44,7 +53,7 @@ def processing(request):
 
 
 def score(form_res: FormResult):
-    scoring_model = CareerScoring('apps/scoring/data/')
+    scoring_model = CareerScoring('data/')
     competitions = form_res.competitions
     if competitions is not None and len(competitions) > 0:
         print(competitions)
@@ -69,6 +78,8 @@ def score(form_res: FormResult):
 def scoring(request):
     formResult = FormResult.objects.filter(user=request.user).order_by(
         "-created_at").first()
-    score(form_res=formResult)
-
+    if formResult is None:
+        redirect("main:main")
+    elif formResult.score.first() is None:
+        score(form_res=formResult)
     return redirect("recommendations:recommendations")

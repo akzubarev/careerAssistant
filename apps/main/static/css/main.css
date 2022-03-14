@@ -108,7 +108,7 @@
     display: flex;
     position: relative;
     flex-direction: column;
-    height: 247px;
+    /*height: 247px;*/
     flex: 0 1 70%;
 }
 

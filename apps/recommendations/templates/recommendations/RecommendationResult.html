@@ -4,58 +4,81 @@
           href="{% static '/css/RecommendationResult.css' %}"/>
 {% endblock %}
 {% block content %}
-    <section class="layout results_section_container">
-        <div class="layout results_goal_group">
-            <div class="layout results_text_group">
-                <h2 class="layout main_subtitle">
-                    Твоя карьерная цель на 5 лет
-                </h2>
-                <h1 class="layout title_1">
-                    {{ goal }}
-                </h1>
-                <div class="layout button"
-                     onclick="form()"> Пройти тестирование заново
+    {% if goal != "None" %}
+        <section class="layout results_section_container">
+            <div class="layout results_goal_group">
+                <div class="layout results_text_group">
+                    <h2 class="layout main_subtitle">
+                        Твоя карьерная цель на 5 лет
+                    </h2>
+                    <h1 class="layout title_1">
+                        {{ goal }}
+                    </h1>
+                    <div class="layout button"
+                         onclick="form()"> Пройти тестирование заново
+                    </div>
+                </div>
+                <div style="--src:url({% static 'assets/stonks.png' %})"
+                     class="layout results_goal_image">
                 </div>
             </div>
-            <div style="--src:url({% static 'assets/stonks.png' %})"
-                 class="layout results_goal_image">
+        </section>
+    {% else %}
+        <section class="layout results_section_container">
+            <div class="layout results_goal_group">
+                <div class="layout results_text_group">
+                    <h2 class="layout main_subtitle">
+                        Твоя карьерная цель на 5 лет еще не определена
+                    </h2>
+                    <h1 class="layout title_1">
+                        Сначала пройди наше тестирование!
+                    </h1>
+                    <div class="layout button"
+                         onclick="main()"> Пройти
+                    </div>
+                </div>
+                <div style="--src:url({% static 'assets/stonks.png' %})"
+                     class="layout results_goal_image">
+                </div>
             </div>
-        </div>
-    </section>
-    <section class="layout recommendation_container">
-        <div class="layout recommendation_flex">
-            <h1 class="layout title_1">
-                Рекомендации
-            </h1>
-            {% for key, values in model_res.items %}
-                <h1 class="layout recommendation_row_title">
-                    {{ key }}
+        </section>
+    {% endif %}
+    {% if model_res != "None" %}
+        <section class="layout recommendation_container">
+            <div class="layout recommendation_flex">
+                <h1 class="layout title_1">
+                    Рекомендации
                 </h1>
-                <div class="layout recommendations_row">
-                    {% for title, description in values.items %}
-                        <div class="recommendation_card">
-                            <div class="layout recommendation_card_group">
-                                <div class="layout recommendation_card_flex">
-                                    <h2 class="layout2 recommendation_card_title">
-                                        {{ title }}
-                                    </h2>
-                                    <h4 class="layout recommendation_card_text">
-                                        {{ description }}
-                                    </h4>
+                {% for key, values in model_res.items %}
+                    <h1 class="layout recommendation_row_title">
+                        {{ key }}
+                    </h1>
+                    <div class="layout recommendations_row">
+                        {% for title, description in values.items %}
+                            <div class="recommendation_card">
+                                <div class="layout recommendation_card_group">
+                                    <div class="layout recommendation_card_flex">
+                                        <h2 class="layout2 recommendation_card_title">
+                                            {{ title }}
+                                        </h2>
+                                        <h4 class="layout recommendation_card_text">
+                                            {{ description }}
+                                        </h4>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="recommendation_row_spacer"></div>
-                    {% endfor %}
-                </div>
-            {% endfor %}
-        </div>
-    </section>
+                            <div class="recommendation_row_spacer"></div>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+    {% endif %}
 {% endblock %}
 {% block extrajs %}
     <script type="text/javascript">
-        function form() {
-            location.href = '{% url "scoring:scoring" %}'
+        function main() {
+            location.href = '{% url "main:main" %}'
         }
     </script>
 {% endblock %}

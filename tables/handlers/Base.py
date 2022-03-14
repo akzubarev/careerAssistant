@@ -5,7 +5,6 @@ from typing import Type
 
 import pandas as pd
 from django.db.models import Model
-from pandas import DataFrame
 
 from apps.users.models import Company
 

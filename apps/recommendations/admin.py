@@ -6,11 +6,12 @@ from apps.recommendations.models import RecommendationResult
 @admin.register(RecommendationResult)
 class RecommendationResultAdmin(admin.ModelAdmin):
     list_display = [
-        'scoringResult',
-        'events_format',
-        # 'articles',
-        # 'courses',
-        # 'vacancies',
+        'id',
+        'scoringResult_format',
+        # 'events_format',
+        'articles_format',
+        # 'courses_format',
+        'vacancies_format',
         'updated_at',
         'created_at'
     ]
@@ -33,6 +34,22 @@ class RecommendationResultAdmin(admin.ModelAdmin):
         }],
     ]
 
-    @admin.display(description="Events")
+    @admin.display(description="scoringResult", ordering="scoringResult")
+    def scoringResult_format(self, obj):
+        return obj.scoringResult.withLink()
+
+    @admin.display(description="Events", ordering="events")
     def events_format(self, obj):
         return ",".join(event.name for event in obj.events.all())
+
+    @admin.display(description="Articles", ordering="articles")
+    def articles_format(self, obj):
+        return ",".join(article.name for article in obj.articles.all())
+
+    @admin.display(description="Courses", ordering="courses")
+    def courses_format(self, obj):
+        return ",".join(course.name for course in obj.courses.all())
+
+    @admin.display(description="Vacancies", ordering="vacancies")
+    def vacancies_format(self, obj):
+        return ",".join(vacancy.name for vacancy in obj.vacancies.all())

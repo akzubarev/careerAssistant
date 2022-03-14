@@ -78,7 +78,7 @@
     position: relative;
     height: min-content;
     width: 88.89%;
-    margin: 62px auto;
+    margin: 10px auto;
 }
 
 
@@ -91,7 +91,7 @@
 .recommendation_row_title.layout {
     position: relative;
     height: min-content;
-    margin: 52px 0 0;
+    margin: 10px 0 0;
 }
 
 .recommendation_row_title {

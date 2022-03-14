@@ -1,7 +1,7 @@
 from scoring_model import CareerScoring
 
 if __name__ == "__main__":
-    scoring = CareerScoring('data/')
+    scoring = CareerScoring('../../data/')
     goals = scoring.get_career_goal(
         jobs=[{
             'position': 'веб-дизайнер',
